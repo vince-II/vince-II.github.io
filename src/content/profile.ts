@@ -25,6 +25,7 @@ export type Role = {
 
 export type Contact = {
   email: string
+  phone: { label: string; tel: string }
   linkedin: { label: string; url: string }
   github: { label: string; url: string }
 }
@@ -90,6 +91,7 @@ export const profile = {
   ],
   contact: {
     email: 'vincentneryii@gmail.com',
+    phone: { label: '0412 021 899', tel: '+61412021899' },
     linkedin: { label: 'linkedin.com/in/vincenery-ii', url: 'https://www.linkedin.com/in/vincenery-ii/' },
     github: { label: 'github.com/vince-II', url: 'https://github.com/vince-II' },
   },
