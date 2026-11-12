@@ -1,1 +1,6 @@
 .heading { color: var(--purple); font-weight: 700; }
+
+.allLabel { color: var(--cyan); text-decoration: underline; text-decoration-color: rgba(139, 233, 253, .35); text-underline-offset: 3px; transition: text-decoration-color 200ms var(--ease); }
+.all { text-indent: 0; padding-left: 60px; }
+@media (max-width: 760px) { .all { padding-left: 40px; } }
+.all:hover .allLabel, .all:focus-visible .allLabel { text-decoration-color: var(--cyan); }

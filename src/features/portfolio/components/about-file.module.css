@@ -1,1 +1,8 @@
 .name { display: inline; margin: 0; font-size: clamp(22px, 2.6vw, 34px); font-weight: 800; color: var(--fg); letter-spacing: -0.02em; line-height: 1.35; }
+
+@media (max-width: 420px) {
+  .name { font-size: 20px; }
+}
+@media (max-width: 360px) {
+  .name { font-size: 18px; }
+}

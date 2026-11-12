@@ -1,5 +1,5 @@
 import type { Project } from '@/content/profile'
-import { CodeBlock, EditorPane, LinkLine, Token } from '@/ui'
+import { CodeBlock, CodeLine, EditorPane, LinkLine, Token } from '@/ui'
 import styles from './work-file.module.css'
 
 type WorkFileProps = { projects: Project[] }
@@ -17,7 +17,13 @@ export const WorkFile = ({ projects }: WorkFileProps) => (
       ]}
     />
     {projects.map((project, index) => (
-      <LinkLine key={project.url} number={HEADER_LINES + index + 1} label={project.name} href={project.url} status={project.status} />
+      <LinkLine key={project.slug} number={HEADER_LINES + index + 1} label={project.name} href={`/work#${project.slug}`} status={project.status} />
     ))}
+    <CodeBlock start={HEADER_LINES + projects.length + 1} lines={[null]} />
+    <CodeLine number={HEADER_LINES + projects.length + 2} href="/work" className={`${styles.all} swap-trigger`}>
+      <Token kind="comment">[</Token>
+      <span className={styles.allLabel}>read the case studies</span>
+      <Token kind="comment">](/work)</Token>
+    </CodeLine>
   </EditorPane>
 )

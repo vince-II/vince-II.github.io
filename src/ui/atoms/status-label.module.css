@@ -1,3 +1,6 @@
 .label { font-size: 12px; white-space: nowrap; }
 .live { color: var(--green); }
 .building { color: var(--orange); }
+@media (max-width: 420px) {
+  .collapsible { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}

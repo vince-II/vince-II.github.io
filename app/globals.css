@@ -14,6 +14,7 @@
   --red: #ff5555;
   --yellow: #f1fa8c;
   --avatar-bg: #ffd43b;
+  --ui: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --ease: cubic-bezier(0.2, 0, 0, 1);
   color-scheme: dark;

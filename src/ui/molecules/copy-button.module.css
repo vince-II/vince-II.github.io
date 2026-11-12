@@ -7,3 +7,7 @@
 .button:active { scale: .96; }
 .icon { font-size: 13px; display: grid; }
 .check { color: var(--green); }
+
+@media (max-width: 760px) {
+  .button { padding: 5px 12px; }
+}

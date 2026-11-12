@@ -1,7 +1,8 @@
 .line {
   position: relative;
   display: block;
-  padding: 0 20px 0 60px;
+  padding: 0 20px 0 calc(60px + 2ch);
+  text-indent: -2ch;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   transition: background-color 120ms var(--ease);
@@ -21,6 +22,6 @@
 .display::before { top: 50%; transform: translateY(-50%); }
 
 @media (max-width: 760px) {
-  .line { padding-left: 44px; padding-right: 14px; }
-  .line::before { width: 30px; }
+  .line { padding-left: calc(40px + 2ch); padding-right: 14px; }
+  .line::before { width: 28px; }
 }

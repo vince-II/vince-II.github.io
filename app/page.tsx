@@ -1,20 +1,14 @@
 import { profile } from '@/content/profile'
-import { AboutFile, ContactTerminal, ExperienceFile, WorkFile } from '@/features/portfolio'
-import { CursorProvider, EditorWindow, Explorer, StatusBar, TitleBar, type ExplorerFile } from '@/ui'
+import { AboutFile, ContactTerminal, ExperienceFile, HOME_FILES, WorkFile } from '@/features/portfolio'
+import { CursorProvider, EditorWindow, Explorer, StatusBar, TitleBar } from '@/ui'
 
-const FILES: ExplorerFile[] = [
-  { name: 'about.ts', kind: 'ts', href: '#about' },
-  { name: 'experience.yml', kind: 'yml', href: '#experience' },
-  { name: 'work.md', kind: 'md', href: '#work' },
-  { name: 'contact', kind: 'sh', href: '#contact' },
-]
 
 export default function Page() {
   return (
     <CursorProvider initial={{ line: 1, language: 'TypeScript' }}>
       <EditorWindow
         titleBar={<TitleBar path="~/vince-nery-ii · portfolio" />}
-        explorer={<Explorer root="vince-nery-ii" files={FILES} />}
+        explorer={<Explorer root="vince-nery-ii" files={HOME_FILES} />}
         primary={<AboutFile profile={profile} avatarSrc="/avatar.png" />}
         secondary={
           <>

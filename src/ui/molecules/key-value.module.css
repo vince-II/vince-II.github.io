@@ -3,3 +3,10 @@
 .value { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; min-width: 0; }
 .value a { color: var(--fg); overflow-wrap: anywhere; transition: color 150ms var(--ease); }
 .value a:hover { color: var(--cyan); }
+
+@media (max-width: 760px) {
+  .row { grid-template-columns: 8ch minmax(0, 1fr); gap: 10px; padding-block: 3px; }
+}
+@media (max-width: 360px) {
+  .row { grid-template-columns: 7ch minmax(0, 1fr); }
+}

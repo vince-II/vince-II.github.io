@@ -3,3 +3,10 @@
 .row:hover .url, .row:focus-visible .url { text-decoration-color: var(--cyan); }
 .icon { color: var(--cyan); font-size: 15px; display: grid; place-items: center; }
 .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--line); }
+
+@media (max-width: 760px) {
+  .row { padding-block: 8px; }
+}
+.row { text-indent: 0; padding-left: 60px; }
+@media (max-width: 760px) { .row { padding-left: 40px; } }
+.url { overflow-wrap: normal; word-break: keep-all; }

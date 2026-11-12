@@ -1,4 +1,4 @@
-.badge { font-size: 10px; font-weight: 700; width: 26px; flex: none; }
+.badge { font-family: var(--mono); font-size: 10px; font-weight: 700; width: 26px; flex: none; }
 .ts { color: var(--cyan); }
 .yml { color: var(--pink); }
 .md { color: var(--purple); }

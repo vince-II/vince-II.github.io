@@ -1,9 +1,19 @@
 export type ProjectStatus = 'live' | 'building'
 
+export type ProjectKind = 'product' | 'client website'
+
 export type Project = {
+  slug: string
   name: string
-  url: string
+  /** Public URL. Leave out while there is nothing to visit yet. */
+  url?: string
   status: ProjectStatus
+  kind: ProjectKind
+  /** One or two sentences for the case study. */
+  summary?: string[]
+  /** What you did on it. */
+  role?: string
+  stack?: string[]
 }
 
 export type Role = {
@@ -22,7 +32,7 @@ export type Contact = {
 export type Profile = {
   name: string
   tagline: string
-  role: string
+  roles: string[]
   focus: string[]
   background: string[]
   stack: string[]
@@ -35,8 +45,8 @@ export type Profile = {
 
 export const profile = {
   name: 'Vince Nery II',
-  tagline: 'AI engineer. I write the code around the model.',
-  role: 'AI Engineer',
+  tagline: 'AI and full-stack engineer. I write the code around the model.',
+  roles: ['AI Engineer', 'Full-stack Software Engineer'],
   focus: ['harness engineering', 'agent loops', 'evals'],
   background: ['software engineer', 'freelance, AI startups'],
   stack: ['TypeScript', 'Python', 'Next.js', 'LLM APIs'],
@@ -48,13 +58,15 @@ export const profile = {
   // Add company names and dates here, e.g. { title, at: 'Acme AI', when: '2024 - now', work }
   experience: [
     { title: 'Freelance Engineer', at: 'AI startups', work: 'agent harnesses, evals, LLM features' },
-    { title: 'Software Engineer', work: 'full stack web apps' },
+    { title: 'Software Engineer, Full Stack', work: 'web apps from database to UI' },
   ],
   projects: [
-    { name: 'rollnight.app', url: 'https://rollnight.app', status: 'building' },
-    { name: 'kasluwork.com.au', url: 'https://kasluwork.com.au', status: 'building' },
-    { name: 'gabbstudio.com.au', url: 'https://gabbstudio.com.au', status: 'live' },
-    { name: 'grimereapers.com.au', url: 'https://grimereapers.com.au', status: 'live' },
+    // Fill in summary, role and stack per project; empty fields are left off the case study.
+    { slug: 'rollnight', name: 'rollnight.app', url: 'https://rollnight.app', status: 'building', kind: 'product' },
+    { slug: 'popback', name: 'popback', status: 'building', kind: 'product' },
+    { slug: 'kasluwork', name: 'kasluwork.com.au', url: 'https://kasluwork.com.au', status: 'building', kind: 'client website' },
+    { slug: 'gabbstudio', name: 'gabbstudio.com.au', url: 'https://gabbstudio.com.au', status: 'live', kind: 'client website' },
+    { slug: 'grimereapers', name: 'grimereapers.com.au', url: 'https://grimereapers.com.au', status: 'live', kind: 'client website' },
   ],
   contact: {
     email: 'vincentneryii@gmail.com',

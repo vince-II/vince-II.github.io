@@ -1,4 +1,13 @@
-.explorer { height: 100%; background: var(--side); border-right: 1px solid var(--desk); padding: 12px 0; font-size: 12.5px; }
+.explorer { height: 100%; background: var(--side); border-right: 1px solid var(--desk); padding: 12px 0; font: 13px var(--ui); }
 .heading { margin: 0 16px 8px; font-size: 11px; font-weight: 500; letter-spacing: .1em; color: var(--comment); }
 .folder { padding: 2px 16px; color: var(--fg); }
 .folder::before { content: "▾ "; color: var(--comment); }
+
+@media (max-width: 1000px) {
+  .explorer {
+    display: flex; height: auto; padding: 0; border-right: 0; border-bottom: 1px solid var(--desk);
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .explorer::-webkit-scrollbar { display: none; }
+  .heading, .folder { display: none; }
+}

@@ -1,6 +1,6 @@
 'use client'
 
-import type { MouseEvent, ReactNode } from 'react'
+import type { MouseEvent, PointerEvent, ReactNode } from 'react'
 import type { FileKind } from '../atoms'
 import { useCursor } from '../lib/cursor'
 import { Tab } from '../molecules'
@@ -22,7 +22,7 @@ type EditorPaneProps = {
 export const EditorPane = ({ id, label, language, tabs, variant = 'editor', className, children }: EditorPaneProps) => {
   const { moveTo } = useCursor()
 
-  const trackLine = (event: MouseEvent<HTMLDivElement>) => {
+  const trackLine = (event: MouseEvent<HTMLDivElement> | PointerEvent<HTMLDivElement>) => {
     if (!(event.target instanceof Element)) return
     const line = event.target.closest('[data-line]')?.getAttribute('data-line')
     if (line) moveTo({ line: Number(line), language })
@@ -35,7 +35,7 @@ export const EditorPane = ({ id, label, language, tabs, variant = 'editor', clas
           <Tab key={tab.label} variant={variant} {...tab} />
         ))}
       </div>
-      <div className={styles.body} onMouseOver={trackLine}>
+      <div className={styles.body} onMouseOver={trackLine} onPointerDown={trackLine}>
         {children}
       </div>
     </section>

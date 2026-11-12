@@ -9,7 +9,7 @@ export const LinkLine = ({ number, label, href, status }: LinkLineProps) => (
     <span>
       <Token kind="bullet">-</Token> <span className={styles.url}>{label}</span>
     </span>
-    <StatusLabel status={status} />
+    <StatusLabel status={status} collapsible />
     <span className={styles.icon}>
       <IconSwap idle={<span className={styles.dot} />} active={<Icon name="arrow-up-right" />} />
     </span>

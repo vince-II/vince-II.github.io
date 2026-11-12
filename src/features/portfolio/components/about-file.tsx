@@ -34,7 +34,7 @@ export const AboutFile = ({ profile, avatarSrc }: AboutFileProps) => {
       <Token kind="keyword">export const</Token> vince <Token kind="keyword">=</Token> {'{'}
     </>,
     <>
-      {'  '}<Token kind="property">role</Token>: <Token kind="string">&quot;{profile.role}&quot;</Token>,
+      {'  '}<Token kind="property">roles</Token>: [{stringList(profile.roles)}],
     </>,
     <>
       {'  '}<Token kind="property">focus</Token>: [{stringList(profile.focus)}],

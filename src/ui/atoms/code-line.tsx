@@ -1,6 +1,9 @@
 import type { CSSProperties, ReactNode } from 'react'
 import styles from './code-line.module.css'
 
+const EXTERNAL = { target: '_blank', rel: 'noopener' } as const
+const isExternal = (href: string) => /^https?:\/\//.test(href)
+
 type CodeLineProps = {
   number: number
   children?: ReactNode
@@ -20,7 +23,7 @@ export const CodeLine = ({ number, children, size = 'default', enterIndex, href,
 
   if (href) {
     return (
-      <a className={classes} style={style} data-line={number} href={href} target="_blank" rel="noopener">
+      <a className={classes} style={style} data-line={number} href={href} {...(isExternal(href) ? EXTERNAL : {})}>
         {content}
       </a>
     )

@@ -1,0 +1,27 @@
+.desk {
+  min-height: 100svh;
+  display: grid;
+  padding-block: clamp(12px, 3vh, 32px);
+  padding-left: max(16px, env(safe-area-inset-left, 0px), 3vw);
+  padding-right: max(16px, env(safe-area-inset-right, 0px), 3vw);
+}
+.window {
+  max-width: 1320px; width: 100%; margin: 0 auto;
+  display: grid; grid-template-rows: auto 1fr auto;
+  background: var(--bg); border: 1px solid #000; border-radius: 10px; overflow: clip;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .03) inset;
+}
+.body { display: grid; grid-template-columns: 210px minmax(0, 1fr); }
+.explorer { min-width: 0; }
+.explorer > * { position: sticky; top: 0; height: auto; min-height: 100%; }
+.content { min-width: 0; }
+
+@media (max-width: 1000px) {
+  .body { grid-template-columns: minmax(0, 1fr); }
+  .explorer { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; }
+  .explorer > * { position: static; min-height: 0; }
+}
+@media (max-width: 760px) {
+  .desk { padding-block: 8px; }
+  .window { border-radius: 8px; }
+}

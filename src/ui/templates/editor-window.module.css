@@ -21,11 +21,13 @@
 
 @media (max-width: 1000px) {
   .body { grid-template-columns: minmax(0, 1fr); }
-  .explorer { display: none; }
+  .explorer { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; }
 }
 @media (max-width: 760px) {
   .panes { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; }
   .primary, .secondary, .panel { grid-column: 1; grid-row: auto; }
   .primary { border-right: 0; }
   .secondary { border-top: 1px solid var(--desk); }
+  .desk { padding-block: 8px; }
+  .window { border-radius: 8px; overflow: clip; }
 }
