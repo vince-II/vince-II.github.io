@@ -29,6 +29,14 @@ export type Contact = {
   github: { label: string; url: string }
 }
 
+export type Book = {
+  slug: string
+  title: string
+  author: string
+  /** Path under public/. */
+  cover: string
+}
+
 export type Profile = {
   name: string
   tagline: string
@@ -40,6 +48,7 @@ export type Profile = {
   closingNote: [string, string]
   experience: Role[]
   projects: Project[]
+  books: Book[]
   contact: Contact
 }
 
@@ -72,6 +81,12 @@ export const profile = {
     { slug: 'kasluwork', name: 'kasluwork.com.au', url: 'https://kasluwork.com.au', status: 'building', kind: 'client website' },
     { slug: 'gabbstudio', name: 'gabbstudio.com.au', url: 'https://gabbstudio.com.au', status: 'live', kind: 'client website' },
     { slug: 'grimereapers', name: 'grimereapers.com.au', url: 'https://grimereapers.com.au', status: 'live', kind: 'client website' },
+  ],
+  books: [
+    { slug: 'atomic-habits', title: 'Atomic Habits', author: 'James Clear', cover: '/books/atomic-habits.jpg' },
+    { slug: 'deep-work', title: 'Deep Work', author: 'Cal Newport', cover: '/books/deep-work.jpg' },
+    { slug: 'polymath', title: 'Polymath', author: 'Peter Hollins', cover: '/books/polymath.jpg' },
+    { slug: 'metamorphosis', title: 'The Metamorphosis', author: 'Franz Kafka', cover: '/books/metamorphosis.jpg' },
   ],
   contact: {
     email: 'vincentneryii@gmail.com',

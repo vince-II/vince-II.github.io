@@ -1,5 +1,5 @@
 import { profile } from '@/content/profile'
-import { AboutFile, ContactTerminal, ExperienceFile, HOME_FILES, WorkFile } from '@/features/portfolio'
+import { AboutFile, ContactTerminal, ExperienceFile, HOME_FILES, ReadingFile, WorkFile } from '@/features/portfolio'
 import { CursorProvider, EditorWindow, Explorer, StatusBar, TitleBar } from '@/ui'
 
 
@@ -14,6 +14,7 @@ export default function Page() {
           <>
             <ExperienceFile roles={profile.experience} />
             <WorkFile projects={profile.projects} />
+            <ReadingFile books={profile.books} />
           </>
         }
         panel={<ContactTerminal contact={profile.contact} />}

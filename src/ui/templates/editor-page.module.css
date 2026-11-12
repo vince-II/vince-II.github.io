@@ -1,7 +1,7 @@
 .desk {
   min-height: 100svh;
   display: grid;
-  padding-block: clamp(12px, 3vh, 32px);
+  padding-block: clamp(8px, 1.5vh, 24px);
   padding-left: max(16px, env(safe-area-inset-left, 0px), 3vw);
   padding-right: max(16px, env(safe-area-inset-right, 0px), 3vw);
 }

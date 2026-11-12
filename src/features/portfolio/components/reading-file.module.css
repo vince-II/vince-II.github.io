@@ -1,0 +1,25 @@
+.heading { color: var(--purple); font-weight: 700; }
+.shelf {
+  list-style: none; margin: 4px 0 0; padding: 0 20px 0 60px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;
+}
+.book { min-width: 0; display: grid; gap: 2px; align-content: start; }
+.cover {
+  width: 100%; max-width: 58px; aspect-ratio: 2 / 3; height: auto; object-fit: cover; display: block;
+  border-radius: 2px 4px 4px 2px; margin-bottom: 4px;
+  box-shadow: inset 3px 0 0 rgba(0, 0, 0, .25), 0 6px 14px -6px rgba(0, 0, 0, .7), 0 0 0 1px rgba(255, 255, 255, .06);
+  transition: transform 300ms var(--ease), box-shadow 300ms var(--ease);
+}
+.book:hover .cover { transform: translateY(-4px) rotate(-2deg); box-shadow: 0 12px 20px -8px rgba(0, 0, 0, .8), 0 0 0 1px var(--purple); }
+.title, .author { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.title { font-size: 11.5px; line-height: 1.35; color: var(--fg); }
+.author { font-size: 11px; line-height: 1.35; color: var(--comment); }
+
+@media (max-width: 760px) {
+  .shelf { padding: 0 14px 0 40px; gap: 10px; }
+  .cover { max-width: none; }
+}
+
+@media (max-width: 760px) {
+  .title, .author { white-space: normal; }
+}
