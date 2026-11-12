@@ -1,0 +1,5 @@
+.row { display: grid; grid-template-columns: 9ch minmax(0, 1fr); gap: 12px; align-items: center; }
+.key { color: var(--comment); }
+.value { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; min-width: 0; }
+.value a { color: var(--fg); overflow-wrap: anywhere; transition: color 150ms var(--ease); }
+.value a:hover { color: var(--cyan); }

@@ -1,0 +1,26 @@
+.line {
+  position: relative;
+  display: block;
+  padding: 0 20px 0 60px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  transition: background-color 120ms var(--ease);
+}
+.line::before {
+  content: attr(data-line);
+  position: absolute;
+  left: 0;
+  width: 40px;
+  text-align: right;
+  color: var(--line);
+  transition: color 120ms var(--ease);
+}
+.line:hover { background: rgba(68, 71, 90, .55); }
+.line:hover::before { color: var(--fg); }
+.display { padding-block: 4px; }
+.display::before { top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 760px) {
+  .line { padding-left: 44px; padding-right: 14px; }
+  .line::before { width: 30px; }
+}

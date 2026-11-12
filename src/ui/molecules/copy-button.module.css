@@ -1,0 +1,9 @@
+.button {
+  font: 500 11.5px var(--mono); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 4px;
+  padding: 1px 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; line-height: 1.7;
+  transition: border-color 200ms var(--ease), scale 150ms var(--ease);
+}
+.button:hover { border-color: var(--purple); }
+.button:active { scale: .96; }
+.icon { font-size: 13px; display: grid; }
+.check { color: var(--green); }

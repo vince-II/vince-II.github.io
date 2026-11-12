@@ -1,0 +1,17 @@
+.swap { position: relative; width: 1.15em; height: 1.15em; display: inline-grid; place-items: center; flex: none; }
+.swap > * {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  transition: opacity 300ms var(--ease), scale 300ms var(--ease), filter 300ms var(--ease);
+}
+.idle { opacity: 1; scale: 1; filter: blur(0); }
+.active { opacity: 0; scale: .25; filter: blur(4px); }
+
+.swap[data-active="true"] .active,
+:global(.swap-trigger):hover .active,
+:global(.swap-trigger):focus-visible .active { opacity: 1; scale: 1; filter: blur(0); }
+
+.swap[data-active="true"] .idle,
+:global(.swap-trigger):hover .idle,
+:global(.swap-trigger):focus-visible .idle { opacity: 0; scale: .25; filter: blur(4px); }

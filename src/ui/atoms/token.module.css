@@ -1,0 +1,7 @@
+.comment { color: var(--comment); }
+.keyword { color: var(--pink); }
+.string { color: var(--yellow); }
+.property { color: var(--green); }
+.constant { color: var(--purple); }
+.plain { color: var(--fg); }
+.bullet { color: var(--orange); }

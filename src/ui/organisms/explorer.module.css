@@ -1,0 +1,4 @@
+.explorer { height: 100%; background: var(--side); border-right: 1px solid var(--desk); padding: 12px 0; font-size: 12.5px; }
+.heading { margin: 0 16px 8px; font-size: 11px; font-weight: 500; letter-spacing: .1em; color: var(--comment); }
+.folder { padding: 2px 16px; color: var(--fg); }
+.folder::before { content: "▾ "; color: var(--comment); }

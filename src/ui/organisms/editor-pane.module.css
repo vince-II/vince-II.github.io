@@ -1,0 +1,6 @@
+.pane { min-width: 0; display: grid; grid-template-rows: auto 1fr; scroll-margin-top: 16px; }
+.tabs { display: flex; background: var(--side); font-size: 12px; overflow: hidden; }
+.body { padding: 10px 0 14px; min-width: 0; }
+.pane[data-variant="panel"] { background: var(--side); }
+.pane[data-variant="panel"] .tabs { border-bottom: 1px solid var(--desk); }
+.pane[data-variant="panel"] .body { padding: 10px 20px 14px; }

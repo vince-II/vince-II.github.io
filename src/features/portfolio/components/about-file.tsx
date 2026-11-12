@@ -1,0 +1,67 @@
+import type { Profile } from '@/content/profile'
+import { Avatar, CodeBlock, EditorPane, Token, type Line } from '@/ui'
+import styles from './about-file.module.css'
+
+type AboutFileProps = { profile: Profile; avatarSrc: string }
+
+const stringList = (items: string[]) =>
+  items.map((item, index) => (
+    <span key={item}>
+      {index > 0 && ', '}
+      <Token kind="string">&quot;{item}&quot;</Token>
+    </span>
+  ))
+
+export const AboutFile = ({ profile, avatarSrc }: AboutFileProps) => {
+  const lines: Line[] = [
+    <>
+      <Avatar src={avatarSrc} alt={`Illustrated portrait of ${profile.name}`} />
+      <Token kind="comment">/**</Token>
+    </>,
+    {
+      size: 'display',
+      content: (
+        <>
+          <Token kind="comment"> * </Token>
+          <h1 className={styles.name}>{profile.name}</h1>
+        </>
+      ),
+    },
+    <Token kind="comment"> * {profile.tagline}</Token>,
+    <Token kind="comment"> */</Token>,
+    null,
+    <>
+      <Token kind="keyword">export const</Token> vince <Token kind="keyword">=</Token> {'{'}
+    </>,
+    <>
+      {'  '}<Token kind="property">role</Token>: <Token kind="string">&quot;{profile.role}&quot;</Token>,
+    </>,
+    <>
+      {'  '}<Token kind="property">focus</Token>: [{stringList(profile.focus)}],
+    </>,
+    <>
+      {'  '}<Token kind="property">background</Token>: [{stringList(profile.background)}],
+    </>,
+    <>
+      {'  '}<Token kind="property">stack</Token>: [{stringList(profile.stack)}],
+    </>,
+    <>
+      {'  '}<Token kind="property">openToWork</Token>: <Token kind="constant">{String(profile.openToWork)}</Token>,
+    </>,
+    '};',
+    null,
+    <Token kind="comment">// {profile.closingNote[0]}</Token>,
+    <Token kind="comment">// {profile.closingNote[1]}</Token>,
+  ]
+
+  return (
+    <EditorPane
+      id="about"
+      label="About"
+      language="TypeScript"
+      tabs={[{ label: 'about.ts', kind: 'ts', isActive: true }, { label: 'README.md' }]}
+    >
+      <CodeBlock lines={lines} staggered />
+    </EditorPane>
+  )
+}

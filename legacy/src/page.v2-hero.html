@@ -1,0 +1,226 @@
+<title>Vince Nery II</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Vince Nery II builds agent harnesses, evals and LLM products. Software engineer and freelancer for AI startups.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one screen. Meta bar, a single giant name line with the avatar set inline, a slow marquee, then three columns (about / work / contact) and a footer rule. Dracula, dark only by choice. */
+:root {
+  --bg: #282a36;
+  --bg-2: #21222c;
+  --line: #44475a;
+  --fg: #f8f8f2;
+  --dim: rgba(248, 248, 242, .62);
+  --muted: #6272a4;
+  --purple: #bd93f9;
+  --pink: #ff79c6;
+  --green: #50fa7b;
+  --cyan: #8be9fd;
+  --orange: #ffb86c;
+  --yellow: #f1fa8c;
+  --display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--fg); }
+body { margin: 0; font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::selection { background: var(--purple); color: var(--bg); }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; border-radius: 4px; }
+
+.page {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
+  row-gap: clamp(18px, 2.8vh, 30px);
+  padding-block: 20px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px), 3.2vw);
+  padding-right: max(16px, env(safe-area-inset-right, 0px), 3.2vw);
+}
+.label { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- meta bar ---------- */
+.bar { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; }
+.bar .label b { color: var(--fg); font-weight: 500; }
+.status { display: inline-flex; align-items: center; gap: 8px; }
+.pulse { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+.pulse::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--green); animation: ping 2.2s var(--ease) infinite; }
+@keyframes ping { 0% { transform: scale(1); opacity: .6; } 80%, 100% { transform: scale(3); opacity: 0; } }
+
+/* ---------- hero ---------- */
+.hero { margin: 0; font-family: var(--display); font-weight: 800; font-size: clamp(54px, 13.6vw, 220px); line-height: .92; letter-spacing: -0.045em; display: flex; flex-wrap: wrap; align-items: center; column-gap: .22em; row-gap: .04em; }
+.hero .w { display: inline-block; }
+.hero .ii { color: var(--purple); }
+.hero .pair { white-space: nowrap; }
+.avatar {
+  display: inline-block; width: .9em; height: .9em; border-radius: 50%; overflow: hidden; flex: none;
+  background: #ffd43b; transform: rotate(-6deg);
+  box-shadow: 0 0 0 .05em var(--bg), 0 0 0 .07em var(--yellow);
+  transition: transform 500ms var(--ease);
+}
+.avatar:hover { transform: rotate(4deg) scale(1.04); }
+.avatar img { width: 100%; height: 100%; display: block; }
+
+/* ---------- marquee ---------- */
+.marquee { border-block: 1px solid var(--line); overflow: hidden; padding-block: 10px; margin-inline: calc(-1 * max(16px, 3.2vw)); }
+.track { display: flex; width: max-content; animation: slide 38s linear infinite; }
+.track span { font-family: var(--mono); font-size: 13px; color: var(--dim); white-space: nowrap; padding-right: 28px; }
+.track span i { font-style: normal; color: var(--pink); padding-right: 28px; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* ---------- columns ---------- */
+.cols { display: grid; grid-template-columns: 1.05fr 1.25fr 1fr; gap: clamp(24px, 3.4vw, 56px); align-items: start; }
+.cols > section { min-width: 0; display: grid; gap: 14px; }
+
+.about p { margin: 0; font-size: 16px; line-height: 1.6; max-width: 46ch; text-wrap: pretty; }
+.about p em { font-style: normal; color: var(--pink); }
+.exp { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 4px; font-size: 13.5px; }
+.exp li { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.exp li span:last-child { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+
+.work ul { list-style: none; margin: 0; padding: 0; }
+.work a {
+  display: grid; grid-template-columns: 1fr auto 20px; align-items: center; gap: 14px;
+  padding: 9px 0; border-top: 1px solid var(--line);
+}
+.work li:last-child a { border-bottom: 1px solid var(--line); }
+.work .name { font-family: var(--display); font-weight: 600; font-size: clamp(18px, 1.6vw, 23px); letter-spacing: -0.02em; transition: transform 300ms var(--ease), color 300ms var(--ease); }
+.work .kind { font-family: var(--mono); font-size: 11.5px; color: var(--muted); text-align: right; }
+.work .kind.live { color: var(--green); }
+.work .kind.wip { color: var(--orange); }
+.work a:hover .name, .work a:focus-visible .name { transform: translateX(6px); color: var(--cyan); }
+
+/* icon cross-fade: both icons stay mounted, scale .25 -> 1, opacity, blur 4px -> 0, no overshoot */
+.swap { position: relative; width: 20px; height: 20px; display: grid; place-items: center; }
+.swap > * { grid-area: 1 / 1; transition: opacity 300ms var(--ease), scale 300ms var(--ease), filter 300ms var(--ease); }
+.swap .on { opacity: 0; scale: .25; filter: blur(4px); }
+.swap .off { opacity: 1; scale: 1; filter: blur(0); }
+.work a:hover .swap .on, .work a:focus-visible .swap .on, .copy.done .swap .on { opacity: 1; scale: 1; filter: blur(0); }
+.work a:hover .swap .off, .work a:focus-visible .swap .off, .copy.done .swap .off { opacity: 0; scale: .25; filter: blur(4px); }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
+.swap svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.work .swap { color: var(--cyan); }
+
+.contact .mail { font-family: var(--display); font-weight: 600; font-size: clamp(19px, 1.75vw, 26px); letter-spacing: -0.02em; line-height: 1.2; overflow-wrap: anywhere; background: linear-gradient(var(--purple), var(--purple)) 0 100% / 0 2px no-repeat; transition: background-size 400ms var(--ease); padding-bottom: 2px; justify-self: start; }
+.contact .mail:hover { background-size: 100% 2px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.btn {
+  font: 500 12.5px var(--mono); color: var(--fg); background: var(--bg-2); border: 1px solid var(--line);
+  border-radius: 999px; padding: 8px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color 200ms var(--ease), background-color 200ms var(--ease), scale 150ms var(--ease);
+}
+.btn:hover { border-color: var(--purple); }
+.btn:active { scale: .96; }
+.copy .swap { width: 16px; height: 16px; }
+.copy .swap svg { width: 15px; height: 15px; }
+.copy .on { color: var(--green); }
+.copy .txt { min-width: 4.6ch; text-align: left; }
+
+/* ---------- footer ---------- */
+footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding-top: 14px; border-top: 1px solid var(--line); }
+
+/* ---------- enter: split + stagger (opacity, y 12px, blur 4px) ---------- */
+.in { animation: enter 600ms var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms + 120ms); }
+@keyframes enter { from { opacity: 0; transform: translateY(12px); filter: blur(4px); } }
+.hero .in { animation-duration: 800ms; }
+.avatar.in { animation-name: enterAvatar; }
+@keyframes enterAvatar { from { opacity: 0; transform: rotate(-6deg) translateY(12px) scale(.6); filter: blur(4px); } }
+
+@media (max-width: 1000px) {
+  .cols { grid-template-columns: 1fr 1fr; }
+  .contact { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .cols { grid-template-columns: 1fr; gap: 32px; }
+  .bar .role { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .in, .track, .pulse::after { animation: none !important; }
+  * { transition-duration: 0ms !important; }
+}
+</style>
+
+<main class="page">
+  <div class="bar">
+    <span class="label in" style="--d:0"><b>VN II</b> / Portfolio</span>
+    <span class="label role in" style="--d:100">AI &amp; Harness Engineer</span>
+    <span class="label status in" style="--d:200"><span class="pulse" aria-hidden="true"></span>Open to work</span>
+  </div>
+
+  <h1 class="hero" aria-label="Vince Nery II">
+    <span class="w in" style="--d:80" aria-hidden="true">Vince</span>
+    <span class="avatar in" style="--d:160"><img src="__AVATAR__" alt="" width="320" height="320"></span>
+    <span class="pair" aria-hidden="true"><span class="w in" style="--d:240">Nery</span> <span class="w ii in" style="--d:320">II</span></span>
+  </h1>
+
+  <div class="marquee in" style="--d:500" aria-hidden="true">
+    <div class="track">
+      <span>AI engineering <i>✦</i> Harness engineering <i>✦</i> Agent loops <i>✦</i> Tool calling <i>✦</i> Evals <i>✦</i> Context management <i>✦</i> Shipping LLM products <i>✦</i></span>
+      <span>AI engineering <i>✦</i> Harness engineering <i>✦</i> Agent loops <i>✦</i> Tool calling <i>✦</i> Evals <i>✦</i> Context management <i>✦</i> Shipping LLM products <i>✦</i></span>
+    </div>
+  </div>
+
+  <div class="cols">
+    <section class="about in" style="--d:600" aria-labelledby="h-about">
+      <h2 class="label" id="h-about">About</h2>
+      <p>I write the code around the model. <em>Agent harnesses</em>, tool-calling loops, evals, retries. Most LLM demos fall over once real users touch them, and this layer is usually why.</p>
+      <ul class="exp">
+        <li><span>Freelance Engineer, AI startups</span><span>AI · harness</span></li>
+        <li><span>Software Engineer</span><span>Full stack</span></li>
+      </ul>
+    </section>
+
+    <section class="work in" style="--d:700" aria-labelledby="h-work">
+      <h2 class="label" id="h-work">Selected work</h2>
+      <ul>
+        <li><a href="https://rollnight.app" target="_blank" rel="noopener"><span class="name">rollnight.app</span><span class="kind wip">In progress</span><span class="swap" aria-hidden="true"><span class="dot off"></span><svg class="on" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+        <li><a href="https://kasluwork.com.au" target="_blank" rel="noopener"><span class="name">kasluwork.com.au</span><span class="kind wip">In progress</span><span class="swap" aria-hidden="true"><span class="dot off"></span><svg class="on" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+        <li><a href="https://gabbstudio.com.au" target="_blank" rel="noopener"><span class="name">gabbstudio.com.au</span><span class="kind live">Live</span><span class="swap" aria-hidden="true"><span class="dot off"></span><svg class="on" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+        <li><a href="https://grimereapers.com.au" target="_blank" rel="noopener"><span class="name">grimereapers.com.au</span><span class="kind live">Live</span><span class="swap" aria-hidden="true"><span class="dot off"></span><svg class="on" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a></li>
+      </ul>
+    </section>
+
+    <section class="contact in" style="--d:800" aria-labelledby="h-contact">
+      <h2 class="label" id="h-contact">Say hello</h2>
+      <a class="mail" id="mail" href="mailto:vincentneryii@gmail.com">vincentneryii@gmail.com</a>
+      <div class="row">
+        <button class="btn copy" id="copy" type="button" aria-live="polite">
+          <span class="swap" aria-hidden="true">
+            <svg class="off" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg>
+            <svg class="on" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+          </span><span class="txt">Copy</span>
+        </button>
+        <a class="btn" href="https://www.linkedin.com/in/vincenery-ii/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/vince-II" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </section>
+  </div>
+
+  <footer class="in" style="--d:900">
+    <span class="label">© 2026 Vince Nery II</span>
+    <span class="label">Dracula theme</span>
+  </footer>
+</main>
+
+<script>
+(() => {
+  const btn = document.getElementById('copy');
+  const txt = btn.querySelector('.txt');
+  const mail = document.getElementById('mail');
+  let t;
+  const done = () => {
+    btn.classList.add('done'); txt.textContent = 'Copied';
+    clearTimeout(t); t = setTimeout(() => { btn.classList.remove('done'); txt.textContent = 'Copy'; }, 1800);
+  };
+  const selectMail = () => { const r = document.createRange(); r.selectNodeContents(mail); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+  btn.addEventListener('click', () => {
+    try {
+      navigator.clipboard.writeText('vincentneryii@gmail.com').then(done, selectMail);
+    } catch (e) { selectMail(); }
+  });
+})();
+</script>

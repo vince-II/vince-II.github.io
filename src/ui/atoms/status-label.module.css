@@ -1,0 +1,3 @@
+.label { font-size: 12px; white-space: nowrap; }
+.live { color: var(--green); }
+.building { color: var(--orange); }

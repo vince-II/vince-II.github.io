@@ -1,0 +1,294 @@
+<title>Vince Nery II</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Vince Nery II builds agent harnesses, evals and LLM products. Software engineer and freelancer for AI startups.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap">
+<style>
+/* Layout: the page is one Dracula editor window. Explorer on the left, about.ts on the left pane, experience.yml over work.md on the right, a terminal with contact details along the bottom, status bar under it. Dark only by choice. */
+:root {
+  --desk: #191a21;      /* behind the window */
+  --bg: #282a36;        /* editor */
+  --side: #21222c;      /* sidebar, tab strip, panel */
+  --line: #44475a;      /* current line, borders */
+  --fg: #f8f8f2;
+  --comment: #6272a4;
+  --cyan: #8be9fd;
+  --green: #50fa7b;
+  --orange: #ffb86c;
+  --pink: #ff79c6;
+  --purple: #bd93f9;
+  --red: #ff5555;
+  --yellow: #f1fa8c;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--desk); color: var(--fg); }
+body { margin: 0; font-family: var(--mono); font-size: 13.5px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--line); }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; border-radius: 3px; }
+
+.desk {
+  min-height: 100svh;
+  display: grid;
+  padding-block: clamp(12px, 3vh, 32px);
+  padding-left: max(16px, env(safe-area-inset-left, 0px), 3vw);
+  padding-right: max(16px, env(safe-area-inset-right, 0px), 3vw);
+}
+.win {
+  max-width: 1320px; width: 100%; margin: 0 auto;
+  display: grid; grid-template-rows: auto 1fr auto;
+  background: var(--bg); border: 1px solid #000; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.03) inset;
+}
+
+/* title bar */
+.title { display: flex; align-items: center; gap: 16px; padding: 10px 14px; background: var(--desk); border-bottom: 1px solid #000; font-size: 12px; color: var(--comment); }
+.dots { display: flex; gap: 8px; }
+.dots i { width: 12px; height: 12px; border-radius: 50%; display: block; }
+.dots i:nth-child(1) { background: var(--red); }
+.dots i:nth-child(2) { background: var(--yellow); }
+.dots i:nth-child(3) { background: var(--green); }
+.title .path { flex: 1; text-align: center; padding-right: 60px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* body: explorer + editors */
+.body { display: grid; grid-template-columns: 210px minmax(0, 1fr); min-height: 0; }
+.explorer { background: var(--side); border-right: 1px solid var(--desk); padding: 12px 0; font-size: 12.5px; }
+.explorer h2 { margin: 0 16px 8px; font-size: 11px; font-weight: 500; letter-spacing: .1em; color: var(--comment); }
+.explorer .folder { padding: 2px 16px; color: var(--fg); }
+.explorer .folder::before { content: "▾ "; color: var(--comment); }
+.explorer a { display: flex; align-items: center; gap: 8px; padding: 3px 16px 3px 32px; color: var(--fg); opacity: .82; transition: background-color 150ms var(--ease), opacity 150ms var(--ease); }
+.explorer a:hover { background: var(--line); opacity: 1; }
+.ext { font-size: 10px; font-weight: 700; width: 26px; }
+.ext.ts { color: var(--cyan); } .ext.yml { color: var(--pink); } .ext.md { color: var(--purple); } .ext.sh { color: var(--green); }
+
+.panes { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); grid-template-rows: 1fr auto; min-width: 0; }
+.left { grid-row: 1; grid-column: 1; border-right: 1px solid var(--desk); }
+.right { grid-row: 1; grid-column: 2; display: grid; grid-template-rows: auto 1fr; }
+.right .pane + .pane { border-top: 1px solid var(--desk); }
+.term { grid-row: 2; grid-column: 1 / -1; }
+
+.pane { min-width: 0; display: grid; grid-template-rows: auto 1fr; scroll-margin-top: 16px; }
+.tabs { display: flex; background: var(--side); font-size: 12px; overflow: hidden; }
+.tab { display: flex; align-items: center; gap: 8px; padding: 8px 16px; color: var(--comment); border-right: 1px solid var(--desk); white-space: nowrap; }
+.tab.on { background: var(--bg); color: var(--fg); box-shadow: inset 0 1px 0 var(--purple); }
+.pane:target .tab.on { box-shadow: inset 0 2px 0 var(--pink); }
+
+/* code */
+.code { padding: 10px 0 14px; counter-reset: ln; min-width: 0; }
+.l { position: relative; display: block; padding: 0 20px 0 60px; white-space: pre-wrap; overflow-wrap: anywhere; counter-increment: ln; transition: background-color 120ms var(--ease); }
+.l::before { content: counter(ln); position: absolute; left: 0; width: 40px; text-align: right; color: var(--line); transition: color 120ms var(--ease); }
+.l:hover { background: rgba(68, 71, 90, .55); }
+.l:hover::before { color: var(--fg); }
+.c { color: var(--comment); }
+.k { color: var(--pink); }
+.s { color: var(--yellow); }
+.p { color: var(--green); }
+.v { color: var(--fg); }
+.n { color: var(--purple); }
+.f { color: var(--cyan); }
+.o { color: var(--orange); }
+
+.name { font-size: clamp(22px, 2.6vw, 34px); font-weight: 800; color: var(--fg); letter-spacing: -0.02em; line-height: 1.35; }
+.l.big { padding-block: 4px; }
+.l.big::before { top: 50%; transform: translateY(-50%); }
+
+.avatar {
+  float: right; margin: 6px 20px 8px 16px;
+  width: clamp(84px, 9vw, 120px); aspect-ratio: 1; max-width: 100%;
+  border-radius: 22%; overflow: hidden; background: #ffd43b;
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 4px var(--line);
+  transform: rotate(3deg); transition: transform 400ms var(--ease);
+}
+.avatar:hover { transform: rotate(-2deg) scale(1.03); }
+.avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+/* work rows */
+.l.link { display: grid; grid-template-columns: minmax(0, 1fr) auto 18px; gap: 12px; align-items: center; }
+.l.link .u { color: var(--cyan); text-decoration: underline; text-decoration-color: rgba(139, 233, 253, .35); text-underline-offset: 3px; transition: text-decoration-color 200ms var(--ease); }
+.l.link:hover .u, .l.link:focus-visible .u { text-decoration-color: var(--cyan); }
+.st { font-size: 12px; white-space: nowrap; }
+.st.live { color: var(--green); } .st.wip { color: var(--orange); }
+
+/* icon cross-fade: both icons mounted, scale .25 -> 1, opacity, blur 4px -> 0, no overshoot */
+.swap { position: relative; width: 18px; height: 18px; display: grid; place-items: center; }
+.swap > * { grid-area: 1 / 1; transition: opacity 300ms var(--ease), scale 300ms var(--ease), filter 300ms var(--ease); }
+.swap .on { opacity: 0; scale: .25; filter: blur(4px); }
+.l.link:hover .swap .on, .l.link:focus-visible .swap .on, .copy.done .swap .on { opacity: 1; scale: 1; filter: blur(0); }
+.l.link:hover .swap .off, .l.link:focus-visible .swap .off, .copy.done .swap .off { opacity: 0; scale: .25; filter: blur(4px); }
+.swap svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.dot { width: 5px; height: 5px; border-radius: 50%; background: var(--line); }
+.l.link .swap { color: var(--cyan); }
+
+/* terminal */
+.term { background: var(--side); border-top: 1px solid var(--desk); }
+.term .tabs { background: var(--side); border-bottom: 1px solid var(--desk); }
+.term .tab.on { background: var(--side); box-shadow: inset 0 -1px 0 var(--purple); }
+.term .out { padding: 10px 20px 14px; display: grid; gap: 0; }
+.prompt { color: var(--green); } .prompt b { color: var(--purple); font-weight: 400; }
+.kv { display: grid; grid-template-columns: 9ch minmax(0, 1fr); gap: 12px; align-items: center; }
+.kv > span:first-child { color: var(--comment); }
+.kv a { color: var(--fg); transition: color 150ms var(--ease); overflow-wrap: anywhere; }
+.kv a:hover { color: var(--cyan); }
+.mailrow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; min-width: 0; }
+.copy {
+  font: 500 11.5px var(--mono); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 4px;
+  padding: 1px 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; line-height: 1.7;
+  transition: border-color 200ms var(--ease), scale 150ms var(--ease);
+}
+.copy:hover { border-color: var(--purple); }
+.copy:active { scale: .96; }
+.copy .swap { width: 14px; height: 14px; }
+.copy .swap svg { width: 13px; height: 13px; }
+.copy .on { color: var(--green); }
+.caret { display: inline-block; width: .6em; height: 1.1em; vertical-align: -0.2em; background: var(--fg); animation: blink 1.1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* status bar */
+.status { display: flex; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap; padding: 3px 12px; background: var(--purple); color: var(--desk); font-size: 11.5px; font-weight: 500; }
+.status > span { display: flex; gap: 16px; flex-wrap: wrap; }
+.status .live::before { content: "● "; }
+
+/* enter: split + stagger, opacity + y 12px + blur 4px */
+.in { animation: enter 500ms var(--ease) both; animation-delay: calc(var(--d, 0) * 1ms + 80ms); }
+@keyframes enter { from { opacity: 0; transform: translateY(12px); filter: blur(4px); } }
+.left .code .l { animation: enter 420ms var(--ease) both; animation-delay: calc(var(--i, 0) * 35ms + 320ms); }
+
+@media (max-width: 1000px) {
+  .body { grid-template-columns: minmax(0, 1fr); }
+  .explorer { display: none; }
+}
+@media (max-width: 760px) {
+  .panes { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; }
+  .left, .right, .term { grid-column: 1; grid-row: auto; }
+  .left { border-right: 0; }
+  .right { border-top: 1px solid var(--desk); }
+  .l { padding-left: 44px; padding-right: 14px; }
+  .l::before { width: 30px; }
+  .title .path { padding-right: 0; }
+  .status .opt { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .in, .left .code .l, .caret { animation: none !important; }
+  * { transition-duration: 0ms !important; }
+}
+</style>
+
+<div class="desk">
+  <main class="win in" style="--d:0">
+    <div class="title">
+      <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="path">~/vince-nery-ii · portfolio</span>
+    </div>
+
+    <div class="body">
+      <nav class="explorer in" style="--d:100" aria-label="Files">
+        <h2>EXPLORER</h2>
+        <div class="folder">vince-nery-ii</div>
+        <a href="#about"><span class="ext ts">TS</span>about.ts</a>
+        <a href="#experience"><span class="ext yml">YML</span>experience.yml</a>
+        <a href="#work"><span class="ext md">MD</span>work.md</a>
+        <a href="#contact"><span class="ext sh">$_</span>contact</a>
+      </nav>
+
+      <div class="panes">
+        <section class="pane left in" id="about" style="--d:200" data-lang="TypeScript" aria-label="About">
+          <div class="tabs"><span class="tab on"><span class="ext ts">TS</span>about.ts</span><span class="tab">README.md</span></div>
+          <div class="code">
+            <div class="l" style="--i:0"><span class="avatar"><img src="__AVATAR__" alt="Illustrated portrait of Vince" width="320" height="320"></span><span class="c">/**</span></div>
+            <div class="l big" style="--i:1"><span class="c"> * </span><h1 class="name" style="display:inline;margin:0">Vince Nery II</h1></div>
+            <div class="l" style="--i:2"><span class="c"> * AI engineer. I write the code around the model.</span></div>
+            <div class="l" style="--i:3"><span class="c"> */</span></div>
+            <div class="l" style="--i:4"> </div>
+            <div class="l" style="--i:5"><span class="k">export const</span> <span class="v">vince</span> <span class="k">=</span> {</div>
+            <div class="l" style="--i:6">  <span class="p">role</span>: <span class="s">"AI Engineer"</span>,</div>
+            <div class="l" style="--i:7">  <span class="p">focus</span>: [<span class="s">"harness engineering"</span>, <span class="s">"agent loops"</span>, <span class="s">"evals"</span>],</div>
+            <div class="l" style="--i:8">  <span class="p">background</span>: [<span class="s">"software engineer"</span>, <span class="s">"freelance, AI startups"</span>],</div>
+            <div class="l" style="--i:9">  <span class="p">stack</span>: [<span class="s">"TypeScript"</span>, <span class="s">"Python"</span>, <span class="s">"Next.js"</span>, <span class="s">"LLM APIs"</span>],</div>
+            <div class="l" style="--i:10">  <span class="p">openToWork</span>: <span class="n">true</span>,</div>
+            <div class="l" style="--i:11">};</div>
+            <div class="l" style="--i:12"> </div>
+            <div class="l" style="--i:13"><span class="c">// Most LLM demos fall over once real users touch them.</span></div>
+            <div class="l" style="--i:14"><span class="c">// The harness around the model is usually why. That's the part I build.</span></div>
+          </div>
+        </section>
+
+        <div class="right">
+          <section class="pane in" id="experience" style="--d:300" data-lang="YAML" aria-label="Experience">
+            <div class="tabs"><span class="tab on"><span class="ext yml">YML</span>experience.yml</span></div>
+            <div class="code">
+              <div class="l">- <span class="p">role</span>: <span class="v">Freelance Engineer</span></div>
+              <div class="l">  <span class="p">at</span>: <span class="s">AI startups</span></div>
+              <div class="l">  <span class="p">work</span>: <span class="s">agent harnesses, evals, LLM features</span></div>
+              <div class="l"> </div>
+              <div class="l">- <span class="p">role</span>: <span class="v">Software Engineer</span></div>
+              <div class="l">  <span class="p">work</span>: <span class="s">full stack web apps</span></div>
+            </div>
+          </section>
+
+          <section class="pane in" id="work" style="--d:400" data-lang="Markdown" aria-label="Work">
+            <div class="tabs"><span class="tab on"><span class="ext md">MD</span>work.md</span></div>
+            <div class="code">
+              <div class="l"><span class="k">#</span> <span class="n" style="font-weight:700">Selected work</span></div>
+              <div class="l"> </div>
+              <a class="l link" href="https://rollnight.app" target="_blank" rel="noopener"><span><span class="o">-</span> <span class="u">rollnight.app</span></span><span class="st wip">◐ building</span><span class="swap" aria-hidden="true"><span class="dot off"></span><svg class="on" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+              <a class="l link" href="https://kasluwork.com.au" target="_blank" rel="noopener"><span><span class="o">-</span> <span class="u">kasluwork.com.au</span></span><span class="st wip">◐ building</span><span class="swap" aria-hidden="true"><span class="dot off"></span><svg class="on" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+              <a class="l link" href="https://gabbstudio.com.au" target="_blank" rel="noopener"><span><span class="o">-</span> <span class="u">gabbstudio.com.au</span></span><span class="st live">● live</span><span class="swap" aria-hidden="true"><span class="dot off"></span><svg class="on" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+              <a class="l link" href="https://grimereapers.com.au" target="_blank" rel="noopener"><span><span class="o">-</span> <span class="u">grimereapers.com.au</span></span><span class="st live">● live</span><span class="swap" aria-hidden="true"><span class="dot off"></span><svg class="on" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
+            </div>
+          </section>
+        </div>
+
+        <section class="pane term in" id="contact" style="--d:500" data-lang="Shell" aria-label="Contact">
+          <div class="tabs"><span class="tab on">TERMINAL</span><span class="tab">OUTPUT</span><span class="tab">PROBLEMS <span class="p">0</span></span></div>
+          <div class="out">
+            <div><span class="prompt">vince@portfolio<b>:~$</b></span> cat contact</div>
+            <div class="kv"><span>email</span><span class="mailrow"><a href="mailto:vincentneryii@gmail.com" id="mail">vincentneryii@gmail.com</a>
+              <button class="copy" id="copy" type="button" aria-live="polite"><span class="swap" aria-hidden="true"><svg class="off" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg><svg class="on" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="txt">copy</span></button></span></div>
+            <div class="kv"><span>linkedin</span><a href="https://www.linkedin.com/in/vincenery-ii/" target="_blank" rel="noopener">linkedin.com/in/vincenery-ii</a></div>
+            <div class="kv"><span>github</span><a href="https://github.com/vince-II" target="_blank" rel="noopener">github.com/vince-II</a></div>
+            <div><span class="prompt">vince@portfolio<b>:~$</b></span> <span class="caret" aria-hidden="true"></span></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="status">
+      <span><span>⎇ main</span><span class="live">open to work</span></span>
+      <span><span id="pos">Ln 1, Col 1</span><span id="lang" class="opt">TypeScript</span><span class="opt">UTF-8</span><span class="opt">Dracula</span></span>
+    </footer>
+  </main>
+</div>
+
+<script>
+(() => {
+  const pos = document.getElementById('pos');
+  const lang = document.getElementById('lang');
+  document.querySelectorAll('.pane').forEach((pane) => {
+    const lines = [...pane.querySelectorAll('.code .l')];
+    lines.forEach((line, i) => {
+      line.addEventListener('mouseenter', () => {
+        pos.textContent = `Ln ${i + 1}, Col 1`;
+        lang.textContent = pane.dataset.lang;
+      });
+    });
+  });
+
+  const btn = document.getElementById('copy');
+  const txt = btn.querySelector('.txt');
+  const mail = document.getElementById('mail');
+  let t;
+  const done = () => {
+    btn.classList.add('done'); txt.textContent = 'copied';
+    clearTimeout(t); t = setTimeout(() => { btn.classList.remove('done'); txt.textContent = 'copy'; }, 1800);
+  };
+  const selectMail = () => { const r = document.createRange(); r.selectNodeContents(mail); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+  btn.addEventListener('click', () => {
+    try { navigator.clipboard.writeText('vincentneryii@gmail.com').then(done, selectMail); }
+    catch (e) { selectMail(); }
+  });
+})();
+</script>
