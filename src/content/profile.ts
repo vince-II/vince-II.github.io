@@ -116,7 +116,16 @@ export const profile = {
         'The public site is WordPress rendered in CI and served as static files from Cloudflare Pages.',
       ],
     },
-    { slug: 'gabbstudio', name: 'gabbstudio.com.au', url: 'https://gabbstudio.com.au', status: 'live', kind: 'client website' },
+    {
+      slug: 'gabbstudio',
+      name: 'gabbstudio.com.au',
+      url: 'https://gabbstudio.com.au',
+      status: 'live',
+      kind: 'client website',
+      role: 'Design and build',
+      stack: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'Sanity', 'Resend', 'Cloudflare'],
+      summary: ['Built on the same stack as grimereapers.com.au: Next.js with content from Sanity, email through Resend, served from Cloudflare.'],
+    },
     {
       slug: 'grimereapers',
       name: 'grimereapers.com.au',
