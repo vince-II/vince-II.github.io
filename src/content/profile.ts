@@ -59,7 +59,7 @@ export const profile = {
   tagline: 'Software engineer with a backend focus. Full stack when the product needs it.',
   roles: ['Software Engineer', 'Backend', 'Full Stack'],
   focus: ['APIs', 'messaging', 'AI features'],
-  interests: ['mechanical keyboards', 'gaming', 'software', 'AI', 'AI news'],
+  interests: ['mechanical keyboards', 'gaming', 'AI news'],
   stack: [
     { key: 'backend', items: ['Go', 'Node.js', 'TypeScript', 'Python'] },
     { key: 'data', items: ['Postgres', 'SQL'] },
