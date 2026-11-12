@@ -34,8 +34,8 @@ export type Profile = {
   tagline: string
   roles: string[]
   focus: string[]
-  background: string[]
-  stack: string[]
+  /** Tools grouped by layer; each group is one line in about.ts. */
+  stack: { key: string; items: string[] }[]
   openToWork: boolean
   closingNote: [string, string]
   experience: Role[]
@@ -45,15 +45,20 @@ export type Profile = {
 
 export const profile = {
   name: 'Vince Nery II',
-  tagline: 'Software engineer. Full stack, specialising in AI products.',
-  roles: ['Software Engineer', 'Full Stack'],
-  focus: ['web apps', 'APIs', 'AI features'],
-  background: ['software engineer', 'AI startups'],
-  stack: ['TypeScript', 'Go', 'Python', 'React', 'SQL'],
+  tagline: 'Software engineer with a backend focus. Full stack when the product needs it.',
+  roles: ['Software Engineer', 'Backend', 'Full Stack'],
+  focus: ['APIs', 'messaging', 'AI features'],
+  stack: [
+    { key: 'backend', items: ['Go', 'Node.js', 'TypeScript', 'Python'] },
+    { key: 'data', items: ['Postgres', 'SQL'] },
+    { key: 'aws', items: ['SNS', 'SQS', 'Aurora RDS'] },
+    { key: 'patterns', items: ['DDD'] },
+    { key: 'frontend', items: ['React', 'Next.js'] },
+  ],
   openToWork: true,
   closingNote: [
-    'Full-stack products, end to end, database to UI.',
-    'Lately that means AI features that hold up in production.',
+    'Mostly backend: APIs, queues and data models.',
+    'Full stack when the product needs it, AI features included.',
   ],
   // Add company names and dates here, e.g. { title, at: 'Acme AI', when: '2024 - now', work }
   experience: [

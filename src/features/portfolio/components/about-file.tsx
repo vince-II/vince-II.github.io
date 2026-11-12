@@ -40,11 +40,14 @@ export const AboutFile = ({ profile, avatarSrc }: AboutFileProps) => {
       {'  '}<Token kind="property">focus</Token>: [{stringList(profile.focus)}],
     </>,
     <>
-      {'  '}<Token kind="property">background</Token>: [{stringList(profile.background)}],
+      {'  '}<Token kind="property">stack</Token>: {'{'}
     </>,
-    <>
-      {'  '}<Token kind="property">stack</Token>: [{stringList(profile.stack)}],
-    </>,
+    ...profile.stack.map(({ key, items }) => (
+      <>
+        {'    '}<Token kind="property">{key}</Token>: [{stringList(items)}],
+      </>
+    )),
+    '  },',
     <>
       {'  '}<Token kind="property">openToWork</Token>: <Token kind="constant">{String(profile.openToWork)}</Token>,
     </>,
