@@ -20,7 +20,9 @@ export type Role = {
   title: string
   at?: string
   when?: string
-  work: string
+  work?: string
+  /** Slugs of case studies in `projects`, shown as links. */
+  projects?: string[]
 }
 
 export type Contact = {
@@ -74,7 +76,7 @@ export const profile = {
   ],
   // Add company names and dates here, e.g. { title, at: 'Acme AI', when: '2024 - now', work }
   experience: [
-    { title: 'Founder, Software Engineer', at: 'Kaslu (kaslu.com.au)', work: 'my own studio: Kaslu Work, Popback, RollNight' },
+    { title: 'Founder, Software Engineer', at: 'Kaslu, my own studio', projects: ['kasluwork', 'popback', 'rollnight'] },
     { title: 'Software Engineer, Freelance', at: 'AI startups', work: 'full-stack builds, LLM features' },
     { title: 'Software Engineer, Full Stack', work: 'web apps from database to UI' },
   ],

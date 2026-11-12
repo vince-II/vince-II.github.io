@@ -1,0 +1,2 @@
+.link { color: var(--cyan); text-decoration: underline; text-decoration-color: rgba(139, 233, 253, .35); text-underline-offset: 3px; transition: text-decoration-color 200ms var(--ease); }
+.link:hover, .link:focus-visible { text-decoration-color: var(--cyan); }

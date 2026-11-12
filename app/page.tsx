@@ -12,7 +12,7 @@ export default function Page() {
         primary={<AboutFile profile={profile} avatarSrc="/avatar.png" />}
         secondary={
           <>
-            <ExperienceFile roles={profile.experience} />
+            <ExperienceFile roles={profile.experience} projects={profile.projects} />
             <WorkFile projects={profile.projects} />
             <ReadingFile books={profile.books} />
           </>
