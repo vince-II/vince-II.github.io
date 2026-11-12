@@ -77,11 +77,58 @@ export const profile = {
   ],
   projects: [
     // Fill in summary, role and stack per project; empty fields are left off the case study.
-    { slug: 'rollnight', name: 'rollnight.app', url: 'https://rollnight.app', status: 'building', kind: 'product' },
-    { slug: 'popback', name: 'popback', status: 'building', kind: 'product' },
-    { slug: 'kasluwork', name: 'kasluwork.com.au', url: 'https://kasluwork.com.au', status: 'building', kind: 'client website' },
+    {
+      slug: 'rollnight',
+      name: 'rollnight.app',
+      url: 'https://rollnight.app',
+      status: 'building',
+      kind: 'product',
+      role: 'iOS app and backend',
+      stack: ['SwiftUI', 'TypeScript', 'Cloudflare Workers', 'Hono', 'D1', 'R2'],
+      summary: [
+        'An event camera. The host shows a QR code, guests scan it with the iOS app and get 27 shots in the host\'s theme.',
+        'Photos upload as they are taken, stay hidden until the reveal time, then everyone sees them at once. They are deleted 30 days later.',
+      ],
+    },
+    {
+      slug: 'popback',
+      name: 'popback',
+      status: 'building',
+      kind: 'product',
+      role: 'Product and full-stack build',
+      stack: ['Next.js', 'Supabase Postgres', 'Cloudflare Workers', 'Stripe', 'Apple & Google Wallet'],
+      summary: [
+        'Loyalty cards and marketing for independent venues. A QR at the counter puts a card in the customer\'s wallet and records every visit.',
+        'Welcome, birthday and win-back messages go out on the venue\'s behalf, and the venue owns its customer list.',
+      ],
+    },
+    {
+      slug: 'kasluwork',
+      name: 'kasluwork.com.au',
+      url: 'https://kasluwork.com.au',
+      status: 'building',
+      kind: 'client website',
+      role: 'Build and deploy',
+      stack: ['WordPress', 'PHP', 'Cloudflare Pages', 'Sanity', 'Resend'],
+      summary: [
+        'Landing page, waitlist and blog for Kaslu Work. WordPress renders the pages in CI and Cloudflare serves them as static files, so WordPress never runs in public.',
+        'Waitlist sign-ups go to Resend, guarded by Turnstile, a honeypot and a rate limit.',
+      ],
+    },
     { slug: 'gabbstudio', name: 'gabbstudio.com.au', url: 'https://gabbstudio.com.au', status: 'live', kind: 'client website' },
-    { slug: 'grimereapers', name: 'grimereapers.com.au', url: 'https://grimereapers.com.au', status: 'live', kind: 'client website' },
+    {
+      slug: 'grimereapers',
+      name: 'grimereapers.com.au',
+      url: 'https://grimereapers.com.au',
+      status: 'live',
+      kind: 'client website',
+      role: 'Design and build',
+      stack: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'Sanity', 'Resend', 'Cloudflare'],
+      summary: [
+        'Marketing site for a cleaning company covering Canberra, Sydney, Newcastle and Port Stephens.',
+        'Content comes from Sanity, enquiries are emailed through Resend, and it runs on Cloudflare through OpenNext.',
+      ],
+    },
   ],
   books: [
     { slug: 'atomic-habits', title: 'Atomic Habits', author: 'James Clear', cover: '/books/atomic-habits.jpg' },
