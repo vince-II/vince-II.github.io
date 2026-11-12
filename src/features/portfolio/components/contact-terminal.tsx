@@ -18,9 +18,6 @@ export const ContactTerminal = ({ contact }: ContactTerminalProps) => (
       <a id={EMAIL_ID} href={`mailto:${contact.email}`}>{contact.email}</a>
       <CopyButton value={contact.email} fallbackTargetId={EMAIL_ID} />
     </KeyValue>
-    <KeyValue label="phone">
-      <a href={`tel:${contact.phone.tel}`}>{contact.phone.label}</a>
-    </KeyValue>
     <KeyValue label="linkedin">
       <a href={contact.linkedin.url} target="_blank" rel="noopener">{contact.linkedin.label}</a>
     </KeyValue>

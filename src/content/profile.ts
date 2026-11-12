@@ -27,7 +27,6 @@ export type Role = {
 
 export type Contact = {
   email: string
-  phone: { label: string; tel: string }
   linkedin: { label: string; url: string }
   github: { label: string; url: string }
 }
@@ -89,7 +88,6 @@ export const profile = {
       status: 'building',
       kind: 'product',
       role: 'iOS app and backend',
-      stack: ['SwiftUI', 'TypeScript', 'Cloudflare Workers', 'Hono', 'D1', 'R2'],
       summary: [
         'A Kaslu product. An event camera: the host shows a QR code, guests scan it with the iOS app and get 27 shots in the host\'s theme.',
         'Photos upload as they are taken, stay hidden until the reveal time, then everyone sees them at once. They are deleted 30 days later.',
@@ -101,7 +99,6 @@ export const profile = {
       status: 'building',
       kind: 'product',
       role: 'Product and full-stack build',
-      stack: ['Next.js', 'Supabase Postgres', 'Cloudflare Workers', 'Stripe', 'Apple & Google Wallet'],
       summary: [
         'A Kaslu product. Loyalty cards and marketing for independent venues. A QR at the counter puts a card in the customer\'s wallet and records every visit.',
         'Welcome, birthday and win-back messages go out on the venue\'s behalf, and the venue owns its customer list.',
@@ -114,11 +111,9 @@ export const profile = {
       status: 'building',
       kind: 'product',
       role: 'Mobile app, admin and backend',
-      stack: ['Expo', 'React Native', 'Next.js', 'Supabase', 'Postgres', 'PostGIS'],
       summary: [
-        'A Kaslu product. Rostering and geofenced clock-in for Australian hospitality venues. Managers build rosters in a Next.js admin, and staff clock in from an Expo app, only from inside the venue.',
-        'Supabase underneath: Postgres with PostGIS for the geofence, 150+ migrations tested with pgTAP, and edge functions for email and push.',
-        'The public site is WordPress rendered in CI and served as static files from Cloudflare Pages.',
+        'A Kaslu product. Rostering and geofenced clock-in for Australian hospitality venues.',
+        'Managers build rosters in a web admin, and staff clock in from a mobile app, only from inside the venue.',
       ],
     },
     {
@@ -153,7 +148,6 @@ export const profile = {
   ],
   contact: {
     email: 'vincentneryii@gmail.com',
-    phone: { label: '0412 021 899', tel: '+61412021899' },
     linkedin: { label: 'linkedin.com/in/vincenery-ii', url: 'https://www.linkedin.com/in/vincenery-ii/' },
     github: { label: 'github.com/vince-II', url: 'https://github.com/vince-II' },
   },
