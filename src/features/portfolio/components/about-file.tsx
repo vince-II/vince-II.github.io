@@ -49,6 +49,9 @@ export const AboutFile = ({ profile, avatarSrc }: AboutFileProps) => {
     )),
     '  },',
     <>
+      {'  '}<Token kind="property">interests</Token>: [{stringList(profile.interests)}],
+    </>,
+    <>
       {'  '}<Token kind="property">openToWork</Token>: <Token kind="constant">{String(profile.openToWork)}</Token>,
     </>,
     '};',

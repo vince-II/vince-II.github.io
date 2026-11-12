@@ -43,6 +43,7 @@ export type Profile = {
   tagline: string
   roles: string[]
   focus: string[]
+  interests: string[]
   /** Tools grouped by layer; each group is one line in about.ts. */
   stack: { key: string; items: string[] }[]
   openToWork: boolean
@@ -58,6 +59,7 @@ export const profile = {
   tagline: 'Software engineer with a backend focus. Full stack when the product needs it.',
   roles: ['Software Engineer', 'Backend', 'Full Stack'],
   focus: ['APIs', 'messaging', 'AI features'],
+  interests: ['mechanical keyboards', 'gaming', 'software', 'AI', 'AI news'],
   stack: [
     { key: 'backend', items: ['Go', 'Node.js', 'TypeScript', 'Python'] },
     { key: 'data', items: ['Postgres', 'SQL'] },
@@ -72,6 +74,7 @@ export const profile = {
   ],
   // Add company names and dates here, e.g. { title, at: 'Acme AI', when: '2024 - now', work }
   experience: [
+    { title: 'Founder, Software Engineer', at: 'Kaslu (kaslu.com.au)', work: 'my own studio: Kaslu Work, Popback, RollNight' },
     { title: 'Software Engineer, Freelance', at: 'AI startups', work: 'full-stack builds, LLM features' },
     { title: 'Software Engineer, Full Stack', work: 'web apps from database to UI' },
   ],
@@ -86,7 +89,7 @@ export const profile = {
       role: 'iOS app and backend',
       stack: ['SwiftUI', 'TypeScript', 'Cloudflare Workers', 'Hono', 'D1', 'R2'],
       summary: [
-        'An event camera. The host shows a QR code, guests scan it with the iOS app and get 27 shots in the host\'s theme.',
+        'A Kaslu product. An event camera: the host shows a QR code, guests scan it with the iOS app and get 27 shots in the host\'s theme.',
         'Photos upload as they are taken, stay hidden until the reveal time, then everyone sees them at once. They are deleted 30 days later.',
       ],
     },
@@ -98,7 +101,7 @@ export const profile = {
       role: 'Product and full-stack build',
       stack: ['Next.js', 'Supabase Postgres', 'Cloudflare Workers', 'Stripe', 'Apple & Google Wallet'],
       summary: [
-        'Loyalty cards and marketing for independent venues. A QR at the counter puts a card in the customer\'s wallet and records every visit.',
+        'A Kaslu product. Loyalty cards and marketing for independent venues. A QR at the counter puts a card in the customer\'s wallet and records every visit.',
         'Welcome, birthday and win-back messages go out on the venue\'s behalf, and the venue owns its customer list.',
       ],
     },
@@ -111,7 +114,7 @@ export const profile = {
       role: 'Mobile app, admin and backend',
       stack: ['Expo', 'React Native', 'Next.js', 'Supabase', 'Postgres', 'PostGIS'],
       summary: [
-        'Rostering and geofenced clock-in for Australian hospitality venues. Managers build rosters in a Next.js admin, and staff clock in from an Expo app, only from inside the venue.',
+        'A Kaslu product. Rostering and geofenced clock-in for Australian hospitality venues. Managers build rosters in a Next.js admin, and staff clock in from an Expo app, only from inside the venue.',
         'Supabase underneath: Postgres with PostGIS for the geofence, 150+ migrations tested with pgTAP, and edge functions for email and push.',
         'The public site is WordPress rendered in CI and served as static files from Cloudflare Pages.',
       ],

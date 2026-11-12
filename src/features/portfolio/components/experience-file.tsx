@@ -19,7 +19,7 @@ const roleLines = (role: Role): Line[] => [
 ]
 
 export const ExperienceFile = ({ roles }: ExperienceFileProps) => {
-  const lines = roles.flatMap((role, index) => (index === 0 ? roleLines(role) : [null, ...roleLines(role)]))
+  const lines = roles.flatMap(roleLines)
   return (
     <EditorPane id="experience" label="Experience" language="YAML" tabs={[{ label: 'experience.yml', kind: 'yml', isActive: true }]}>
       <CodeBlock lines={lines} />

@@ -1,9 +1,9 @@
 .pane { min-width: 0; display: grid; grid-template-rows: auto 1fr; scroll-margin-top: 16px; }
 .tabs { display: flex; background: var(--side); font: 12.5px var(--ui); overflow: hidden; }
-.body { padding: 10px 0 14px; min-width: 0; }
+.body { padding: 8px 0 10px; min-width: 0; }
 .pane[data-variant="panel"] { background: var(--side); }
 .pane[data-variant="panel"] .tabs { border-bottom: 1px solid var(--desk); }
-.pane[data-variant="panel"] .body { padding: 10px 20px 14px; }
+.pane[data-variant="panel"] .body { padding: 8px 20px 10px; }
 
 @media (max-width: 760px) {
   .pane[data-variant="panel"] .body { padding: 10px 14px 14px; }
