@@ -8,3 +8,17 @@
 @media (max-width: 760px) {
   .pane[data-variant="panel"] .body { padding: 10px 14px 14px; }
 }
+
+/* Opened from the explorer: an outline that stays, plus a short tint that fades. */
+.pane { position: relative; }
+.pane:focus { outline: none; }
+.pane::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  box-shadow: inset 0 0 0 1px transparent; transition: box-shadow 200ms var(--ease);
+}
+.pane:target::after, .pane[data-flash]::after {
+  box-shadow: inset 0 0 0 1px var(--purple);
+  animation: pane-flash 1200ms var(--ease);
+}
+@keyframes pane-flash { from { background: rgba(189, 147, 249, .12); } to { background: rgba(189, 147, 249, 0); } }
+@media (max-width: 1000px) { .pane { scroll-margin-top: 56px; } }

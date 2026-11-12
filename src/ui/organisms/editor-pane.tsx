@@ -29,7 +29,7 @@ export const EditorPane = ({ id, label, language, tabs, variant = 'editor', clas
   }
 
   return (
-    <section id={id} aria-label={label} className={[styles.pane, className].filter(Boolean).join(' ')} data-variant={variant}>
+    <section id={id} aria-label={label} tabIndex={-1} className={[styles.pane, className].filter(Boolean).join(' ')} data-variant={variant}>
       <div className={styles.tabs}>
         {tabs.map((tab) => (
           <Tab key={tab.label} variant={variant} {...tab} />

@@ -22,5 +22,5 @@
 }
 
 @media (max-width: 760px) {
-  .title, .author { white-space: normal; }
+  .title, .author { white-space: normal; overflow-wrap: break-word; hyphens: auto; }
 }

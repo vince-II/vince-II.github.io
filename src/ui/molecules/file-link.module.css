@@ -1,6 +1,9 @@
 .link { display: flex; align-items: center; gap: 8px; padding: 3px 16px 3px 32px; color: var(--fg); opacity: .82; transition: background-color 150ms var(--ease), opacity 150ms var(--ease); }
-.link:hover { background: var(--line); opacity: 1; }
+.link[data-depth="1"] { padding-left: 48px; }
+.link:hover { background: rgba(68, 71, 90, .6); opacity: 1; }
+.link[data-active="true"] { background: var(--line); opacity: 1; }
 
 @media (max-width: 1000px) {
-  .link { padding: 10px 14px; white-space: nowrap; border-right: 1px solid var(--desk); }
+  .link, .link[data-depth="1"] { padding: 10px 14px; white-space: nowrap; border-right: 1px solid var(--desk); }
+  .link[data-active="true"] { box-shadow: inset 0 -2px 0 var(--purple); }
 }

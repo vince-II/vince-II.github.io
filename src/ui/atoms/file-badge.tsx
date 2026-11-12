@@ -1,8 +1,8 @@
 import styles from './file-badge.module.css'
 
-export type FileKind = 'ts' | 'yml' | 'md' | 'sh'
+export type FileKind = 'tsx' | 'ts' | 'yml' | 'md' | 'sh'
 
-const LABELS: Record<FileKind, string> = { ts: 'TS', yml: 'YML', md: 'MD', sh: '$_' }
+const LABELS: Record<FileKind, string> = { tsx: 'TSX', ts: 'TS', yml: 'YML', md: 'MD', sh: '$_' }
 
 type FileBadgeProps = { kind: FileKind }
 

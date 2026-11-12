@@ -1,5 +1,5 @@
 .badge { font-family: var(--mono); font-size: 10px; font-weight: 700; width: 26px; flex: none; }
-.ts { color: var(--cyan); }
+.ts, .tsx { color: var(--cyan); }
 .yml { color: var(--pink); }
 .md { color: var(--purple); }
 .sh { color: var(--green); }

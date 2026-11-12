@@ -1,5 +1,5 @@
 .card { border: 1px solid var(--desk); border-radius: 6px; overflow: hidden; background: var(--bg); scroll-margin-top: 72px; }
-.card:target { border-color: var(--pink); }
+.card:target { border-color: var(--purple); }
 .title { display: inline; margin: 0; font-size: clamp(20px, 2.2vw, 28px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.35; }
 .visit { display: grid; grid-template-columns: minmax(0, 1fr) 18px; gap: 12px; align-items: center; text-indent: 0; padding-left: 60px; }
 @media (max-width: 760px) { .visit { padding-left: 40px; } }
