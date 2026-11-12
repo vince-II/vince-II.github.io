@@ -2,7 +2,21 @@ import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import './globals.css'
 
+const SITE_URL = 'https://vince-ii.github.io'
+const SUMMARY = 'Software engineer with a backend focus: Go, Node.js, Postgres and AWS. Full stack when the product needs it.'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: SITE_URL,
+    siteName: 'Vince Nery II',
+    title: 'Vince Nery II · Software Engineer',
+    description: SUMMARY,
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Vince Nery II, software engineer with a backend focus' }],
+  },
+  twitter: { card: 'summary_large_image', title: 'Vince Nery II · Software Engineer', description: SUMMARY, images: ['/og.png'] },
   title: 'Vince Nery II',
   description: 'Vince Nery II is a backend-focused software engineer: Go, Node.js, Postgres and AWS (SNS, SQS, Aurora RDS), with DDD. Full stack with React and Next.js.',
   icons: { icon: '/avatar.png' },

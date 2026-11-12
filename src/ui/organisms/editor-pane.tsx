@@ -6,7 +6,7 @@ import { useCursor } from '../lib/cursor'
 import { Tab } from '../molecules'
 import styles from './editor-pane.module.css'
 
-export type PaneTab = { label: string; kind?: FileKind; isActive?: boolean }
+export type PaneTab = { label: string; kind?: FileKind; isActive?: boolean; href?: string }
 
 type EditorPaneProps = {
   id: string

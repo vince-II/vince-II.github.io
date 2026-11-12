@@ -65,7 +65,7 @@ export const AboutFile = ({ profile, avatarSrc }: AboutFileProps) => {
       id="about"
       label="About"
       language="TypeScript"
-      tabs={[{ label: 'about.ts', kind: 'ts', isActive: true }, { label: 'README.md' }]}
+      tabs={[{ label: 'about.ts', kind: 'ts', isActive: true }, { label: 'README.md', kind: 'md', href: profile.contact.github.url }]}
     >
       <CodeBlock lines={lines} staggered />
     </EditorPane>

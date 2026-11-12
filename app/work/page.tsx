@@ -6,6 +6,7 @@ import { CursorProvider, EditorPage, Explorer, StatusBar, TitleBar } from '@/ui'
 export const metadata: Metadata = {
   title: 'Work · Vince Nery II',
   description: 'Products Vince Nery II is building and websites he has shipped for clients.',
+  alternates: { canonical: '/work' },
 }
 
 export default function WorkPage() {
