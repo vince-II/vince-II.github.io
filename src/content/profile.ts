@@ -45,19 +45,19 @@ export type Profile = {
 
 export const profile = {
   name: 'Vince Nery II',
-  tagline: 'AI and full-stack engineer. I write the code around the model.',
-  roles: ['AI Engineer', 'Full-stack Software Engineer'],
-  focus: ['harness engineering', 'agent loops', 'evals'],
-  background: ['software engineer', 'freelance, AI startups'],
-  stack: ['TypeScript', 'Python', 'Next.js', 'LLM APIs'],
+  tagline: 'Software engineer. Full stack, specialising in AI products.',
+  roles: ['Software Engineer', 'Full Stack'],
+  focus: ['web apps', 'APIs', 'AI features'],
+  background: ['software engineer', 'AI startups'],
+  stack: ['TypeScript', 'Go', 'Python', 'React', 'SQL'],
   openToWork: true,
   closingNote: [
-    'Most LLM demos fall over once real users touch them.',
-    "The harness around the model is usually why. That's the part I build.",
+    'Full-stack products, end to end, database to UI.',
+    'Lately that means AI features that hold up in production.',
   ],
   // Add company names and dates here, e.g. { title, at: 'Acme AI', when: '2024 - now', work }
   experience: [
-    { title: 'Freelance Engineer', at: 'AI startups', work: 'agent harnesses, evals, LLM features' },
+    { title: 'Software Engineer, Freelance', at: 'AI startups', work: 'full-stack builds, LLM features' },
     { title: 'Software Engineer, Full Stack', work: 'web apps from database to UI' },
   ],
   projects: [

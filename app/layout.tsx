@@ -4,7 +4,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Vince Nery II',
-  description: 'Vince Nery II builds agent harnesses, evals and LLM products. Software engineer and freelancer for AI startups.',
+  description: 'Vince Nery II is a full-stack software engineer who builds web apps, APIs and AI features. Freelance for AI startups.',
   icons: { icon: '/avatar.png' },
 }
 
