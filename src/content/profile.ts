@@ -79,7 +79,7 @@ export const profile = {
   ],
   // Add company names and dates here, e.g. { title, at: 'Acme AI', when: '2024 - now', work }
   experience: [
-    { title: 'Founder, Software Engineer', at: 'Kaslu, my own studio', projects: ['kasluwork', 'rollnight', 'popback'] },
+    { title: 'Founder, Software Engineer', at: 'Kaslu (kaslu.com.au), my studio', projects: ['kasluwork', 'kasludesk', 'rollnight', 'popback'] },
     { title: 'Software Engineer, Freelance', at: 'AI startups', work: 'full-stack builds, LLM features' },
     { title: 'Software Engineer, Full Stack', work: 'web apps from database to UI' },
   ],
@@ -105,6 +105,27 @@ export const profile = {
         { src: '/work/kasluwork/dashboard.webp', alt: 'Kaslu manager dashboard across four venues', kind: 'desktop', width: 1400, height: 1058 },
         { src: '/work/kasluwork/clock-in.webp', alt: 'Kaslu staff app clock-in screen, on site at Bar Rosa', kind: 'device', width: 480, height: 989 },
         { src: '/work/kasluwork/roster.webp', alt: 'Kaslu weekly roster for The Oxford Hotel with wage costs per person', kind: 'desktop', width: 1400, height: 656 },
+      ],
+    },
+    {
+      slug: 'kasludesk',
+      name: 'KasluDesk',
+      status: 'building',
+      kind: 'product',
+      role: 'Founder, design and engineering',
+      summary: [
+        'The app Kaslu sets up for each client business: enquiries, jobs, quotes, invoices and reviews in one place.',
+        'Part of Kaslu, my studio at kaslu.com.au, which builds websites and automations for small businesses.',
+      ],
+      highlights: [
+        'Every enquiry lands in one inbox, and customers\' email replies come back into the same thread.',
+        'Jobs and a calendar, with booking reminders sent the night before.',
+        'Quotes and invoices customers open from a link, with nudges on quotes and reminders on overdue invoices.',
+        'Automations send instant replies, reminders and review requests in the business\'s own words, under its own logo.',
+        'Owners and staff get their own logins. Staff can\'t change settings or delete work.',
+      ],
+      shots: [
+        { src: '/work/kasludesk/today.webp', alt: 'KasluDesk Today screen for Harlow Carpentry, with example data', kind: 'desktop', width: 1400, height: 972 },
       ],
     },
     {
