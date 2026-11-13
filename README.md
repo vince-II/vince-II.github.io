@@ -14,7 +14,7 @@ Deploy on Vercel as a normal Next.js project, or upload `out/` to any static hos
 
 Everything you'd change lives in `src/content/profile.ts`: tagline, focus, stack, roles, projects, contact.
 Roles take an optional `at` and `when`, which show up in `experience.yml` as soon as you fill them in.
-Replace `public/avatar.png` to change the avatar.
+Replace `public/avatar.png` to change the avatar. Product screenshots live in `public/work/<project>/`.
 
 ## Structure
 
@@ -27,7 +27,8 @@ The UI library in `src/ui` follows atomic design. Each level only imports from t
       templates/   EditorWindow   (layout only, content comes in through slots)
       lib/         cursor context shared by EditorPane and StatusBar, enter-delay helper
     src/features/portfolio/components/
-                   AboutFile, ExperienceFile, WorkFile, ContactTerminal
+                   AboutFile, ExperienceFile, WorkFile, ReadingFile, ContactBar,
+                   CaseStudy, Shots, WorkIndex
     app/           layout and page, which wire profile data into the template
 
 The four `*File` components are only used on this page, so they stay in `features/portfolio`
