@@ -1,5 +1,5 @@
 import type { Project } from '@/content/profile'
-import { CodeBlock, EditorPane, Token } from '@/ui'
+import { CodeBlock, CodeLine, EditorPane, Token } from '@/ui'
 import { CaseStudy } from './case-study'
 import styles from './work-index.module.css'
 
@@ -24,6 +24,11 @@ export const WorkIndex = ({ projects }: WorkIndexProps) => (
           </Token>,
         ]}
       />
+      <CodeLine number={3} href="/" className={styles.back}>
+        <Token kind="comment">[</Token>
+        <span className={styles.backLabel}>← back to index.tsx</span>
+        <Token kind="comment">](/)</Token>
+      </CodeLine>
     </EditorPane>
     <div className={styles.grid}>
       {projects.map((project) => (

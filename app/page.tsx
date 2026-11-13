@@ -1,5 +1,5 @@
 import { profile } from '@/content/profile'
-import { AboutFile, ContactBar, ExperienceFile, HOME_FILES, ReadingFile, WorkFile } from '@/features/portfolio'
+import { AboutFile, ContactBar, ExperienceFile, filesFor, ReadingFile, WorkFile } from '@/features/portfolio'
 import { CursorProvider, EditorWindow, Explorer, StatusBar, TitleBar } from '@/ui'
 
 
@@ -8,7 +8,7 @@ export default function Page() {
     <CursorProvider initial={{ line: 1, language: 'TypeScript' }}>
       <EditorWindow
         titleBar={<TitleBar path="~/vince-nery-ii · portfolio" actions={<ContactBar contact={profile.contact} />} />}
-        explorer={<Explorer root="vince-nery-ii" files={HOME_FILES} />}
+        explorer={<Explorer root="vince-nery-ii" files={filesFor('/')} />}
         primary={<AboutFile profile={profile} avatarSrc="/avatar.png" />}
         secondary={
           <>

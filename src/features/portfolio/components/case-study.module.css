@@ -20,3 +20,7 @@
   .visit { padding-left: 40px; padding-block: 8px; }
   .media { padding: 14px 0 4px 14px; }
 }
+
+.backlink { color: var(--cyan); text-decoration: underline; text-decoration-color: rgba(139, 233, 253, .35); text-underline-offset: 3px; transition: text-decoration-color 200ms var(--ease); }
+.backlink:hover, .backlink:focus-visible { text-decoration-color: var(--cyan); }
+.noLigatures { font-variant-ligatures: none; }

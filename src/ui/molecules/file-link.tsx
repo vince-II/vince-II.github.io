@@ -21,6 +21,6 @@ export const FileLink = ({ name, kind, href, isActive = false, depth = 0, onClic
     onClick={onClick}
   >
     <FileBadge kind={kind} />
-    {name}
+    <span className={styles.name}>{name}</span>
   </a>
 )

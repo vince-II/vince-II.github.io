@@ -37,6 +37,14 @@ export const Explorer = ({ root, files }: ExplorerProps) => {
     nav.current?.querySelector('[aria-current]')?.scrollIntoView({ block: 'nearest', inline: 'nearest' })
   }, [activeHref])
 
+  // Arriving from another page with a hash: the browser jumps before web fonts settle the
+  // layout, so jump again once they have.
+  useEffect(() => {
+    const id = window.location.hash.slice(1)
+    if (!id) return
+    document.fonts?.ready.then(() => document.getElementById(id)?.scrollIntoView({ block: 'start' }))
+  }, [])
+
   useEffect(() => {
     const sync = () => setActiveHref(resolveActive(files, window.location.hash))
     sync()

@@ -3,3 +3,4 @@
 .yml { color: var(--pink); }
 .md { color: var(--purple); }
 .sh { color: var(--green); }
+.dir { color: var(--comment); font-size: 11px; }

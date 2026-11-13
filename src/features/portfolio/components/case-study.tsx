@@ -1,6 +1,7 @@
 import type { Project } from '@/content/profile'
 import { CodeBlock, CodeLine, EditorPane, Icon, IconSwap, StatusLabel, Token, type Line } from '@/ui'
 import styles from './case-study.module.css'
+import { BACKLINKS } from '../files'
 import { Shots } from './shots'
 
 type CaseStudyProps = { project: Project }
@@ -47,6 +48,21 @@ const documentLines = (project: Project): Line[] => [
 export const CaseStudy = ({ project }: CaseStudyProps) => {
   const lines = documentLines(project)
   const last = lines.length
+  const end = last + 2
+  const backlinks = (
+    <>
+      <Token kind="comment">{'<!-- linked from '}</Token>
+      {BACKLINKS.map((link, index) => (
+        <span key={link.href}>
+          {index > 0 && <Token kind="comment"> · </Token>}
+          <a className={styles.backlink} href={link.href}>
+            {link.name}
+          </a>
+        </span>
+      ))}
+      <Token kind="comment">{' -->'}</Token>
+    </>
+  )
   return (
     <EditorPane
       id={project.slug}
@@ -81,6 +97,9 @@ export const CaseStudy = ({ project }: CaseStudyProps) => {
               ]}
             />
           )}
+          <div className={styles.noLigatures}>
+            <CodeBlock start={end + 1} lines={[backlinks]} />
+          </div>
         </div>
         {project.shots?.length ? (
           <div className={styles.media}>

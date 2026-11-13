@@ -11,7 +11,7 @@
   background: var(--bg); border: 1px solid #000; border-radius: 10px; overflow: hidden;
   box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .03) inset;
 }
-.body { display: grid; grid-template-columns: 210px minmax(0, 1fr); min-height: 0; }
+.body { display: grid; grid-template-columns: 224px minmax(0, 1fr); min-height: 0; }
 .explorer { min-width: 0; }
 .panes { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); grid-template-rows: 1fr auto; min-width: 0; }
 .primary { grid-row: 1; grid-column: 1; border-right: 1px solid var(--desk); display: grid; min-width: 0; }

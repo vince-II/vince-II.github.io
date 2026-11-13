@@ -2,3 +2,8 @@
 .title { display: inline; margin: 0; font-size: clamp(24px, 3vw, 38px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.35; }
 .grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 16px; background: var(--side); border-top: 1px solid var(--desk); }
 @media (max-width: 760px) { .grid { padding: 10px; gap: 10px; } }
+
+.back { text-indent: 0; padding-left: 60px; }
+.backLabel { color: var(--cyan); text-decoration: underline; text-decoration-color: rgba(139, 233, 253, .35); text-underline-offset: 3px; transition: text-decoration-color 200ms var(--ease); }
+.back:hover .backLabel, .back:focus-visible .backLabel { text-decoration-color: var(--cyan); }
+@media (max-width: 760px) { .back { padding-left: 40px; padding-block: 6px; } }

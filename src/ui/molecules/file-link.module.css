@@ -1,5 +1,6 @@
-.link { display: flex; align-items: center; gap: 8px; padding: 3px 16px 3px 32px; color: var(--fg); opacity: .82; transition: background-color 150ms var(--ease), opacity 150ms var(--ease); }
-.link[data-depth="1"] { padding-left: 48px; }
+.link { display: flex; align-items: center; gap: 8px; padding: 3px 12px 3px 28px; white-space: nowrap; color: var(--fg); opacity: .82; transition: background-color 150ms var(--ease), opacity 150ms var(--ease); }
+.link[data-depth="1"] { padding-left: 44px; }
+.name { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .link:hover { background: rgba(68, 71, 90, .6); opacity: 1; }
 .link[data-active="true"] { background: var(--line); opacity: 1; }
 
