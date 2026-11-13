@@ -10,6 +10,8 @@ type CopyButtonProps = {
   value: string
   /** Element whose text is selected when the clipboard refuses, so the visitor can copy by hand. */
   fallbackTargetId?: string
+  /** Hide the word on phones, keeping it for screen readers. */
+  compact?: boolean
 }
 
 const selectText = (id: string) => {
@@ -22,7 +24,7 @@ const selectText = (id: string) => {
   selection?.addRange(range)
 }
 
-export const CopyButton = ({ value, fallbackTargetId }: CopyButtonProps) => {
+export const CopyButton = ({ value, fallbackTargetId, compact = false }: CopyButtonProps) => {
   const [isCopied, setIsCopied] = useState(false)
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined)
 
@@ -47,7 +49,7 @@ export const CopyButton = ({ value, fallbackTargetId }: CopyButtonProps) => {
       <span className={styles.icon}>
         <IconSwap idle={<Icon name="copy" />} active={<Icon name="check" className={styles.check} />} isActive={isCopied} />
       </span>
-      {isCopied ? 'copied' : 'copy'}
+      <span className={compact ? styles.compact : undefined}>{isCopied ? 'copied' : 'copy'}</span>
     </button>
   )
 }

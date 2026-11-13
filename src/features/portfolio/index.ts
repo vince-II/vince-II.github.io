@@ -1,5 +1,5 @@
 export { AboutFile } from './components/about-file'
-export { ContactTerminal } from './components/contact-terminal'
+export { ContactBar } from './components/contact-bar'
 export { ExperienceFile } from './components/experience-file'
 export { WorkFile } from './components/work-file'
 export { CaseStudy } from './components/case-study'

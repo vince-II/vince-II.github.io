@@ -1,4 +1,4 @@
 .page { display: grid; }
 .title { display: inline; margin: 0; font-size: clamp(24px, 3vw, 38px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.35; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 16px; padding: 16px; background: var(--side); border-top: 1px solid var(--desk); }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 16px; background: var(--side); border-top: 1px solid var(--desk); }
 @media (max-width: 760px) { .grid { padding: 10px; gap: 10px; } }

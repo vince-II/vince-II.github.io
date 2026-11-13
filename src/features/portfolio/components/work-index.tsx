@@ -20,7 +20,7 @@ export const WorkIndex = ({ projects }: WorkIndexProps) => (
             ),
           },
           <Token kind="comment">
-            {projects.length} projects. Products I&apos;m building and websites I&apos;ve shipped for clients.
+            {projects.length} products from Kaslu, my own studio. Click a screenshot to see it full size.
           </Token>,
         ]}
       />

@@ -11,6 +11,10 @@ export type Project = {
   kind: ProjectKind
   /** One or two sentences for the case study. */
   summary?: string[]
+  /** What it does, one line each. */
+  highlights?: string[]
+  /** Screenshots under public/. `phone` shots are bare screens and get a device frame. */
+  shots?: { src: string; alt: string; kind: 'phone' | 'device' | 'desktop'; width: number; height: number }[]
   /** What you did on it. */
   role?: string
   stack?: string[]
@@ -75,22 +79,55 @@ export const profile = {
   ],
   // Add company names and dates here, e.g. { title, at: 'Acme AI', when: '2024 - now', work }
   experience: [
-    { title: 'Founder, Software Engineer', at: 'Kaslu, my own studio', projects: ['kasluwork', 'popback', 'rollnight'] },
+    { title: 'Founder, Software Engineer', at: 'Kaslu, my own studio', projects: ['kasluwork', 'rollnight', 'popback'] },
     { title: 'Software Engineer, Freelance', at: 'AI startups', work: 'full-stack builds, LLM features' },
     { title: 'Software Engineer, Full Stack', work: 'web apps from database to UI' },
   ],
   projects: [
-    // Fill in summary, role and stack per project; empty fields are left off the case study.
+    {
+      slug: 'kasluwork',
+      name: 'kasluwork.com.au',
+      url: 'https://kasluwork.com.au',
+      status: 'building',
+      kind: 'product',
+      role: 'Founder, one of two engineers',
+      summary: [
+        'Rostering and geofenced clock-in for Australian hospitality: cafés, restaurants and pubs.',
+        'A Kaslu product, built by a team of four. I founded it and write the code with one other engineer.',
+      ],
+      highlights: [
+        'Managers build the week on a people grid, with the wage cost of every shift under the venue\'s award.',
+        'Auto-schedule (beta) drafts the roster, then publish checks catch problems before it goes out.',
+        'Staff clock in from their phone or the venue tablet, and only from inside the venue.',
+        'One dashboard across venues: who is on now, open shifts, and swaps and leave to approve.',
+      ],
+      shots: [
+        { src: '/work/kasluwork/dashboard.webp', alt: 'Kaslu manager dashboard across four venues', kind: 'desktop', width: 1400, height: 1058 },
+        { src: '/work/kasluwork/clock-in.webp', alt: 'Kaslu staff app clock-in screen, on site at Bar Rosa', kind: 'device', width: 480, height: 989 },
+        { src: '/work/kasluwork/roster.webp', alt: 'Kaslu weekly roster for The Oxford Hotel with wage costs per person', kind: 'desktop', width: 1400, height: 656 },
+      ],
+    },
     {
       slug: 'rollnight',
       name: 'rollnight.app',
       url: 'https://rollnight.app',
       status: 'building',
       kind: 'product',
-      role: 'iOS app and backend',
+      role: 'Founder, iOS app and backend',
       summary: [
-        'A Kaslu product. An event camera: the host shows a QR code, guests scan it with the iOS app and get 27 shots in the host\'s theme.',
-        'Photos upload as they are taken, stay hidden until the reveal time, then everyone sees them at once. They are deleted 30 days later.',
+        'The event camera guests scan into. A disposable-camera night for birthdays, weddings and parties.',
+        'A Kaslu product.',
+      ],
+      highlights: [
+        'The host creates an event and sets the number of shots, the theme, the timestamp style and the vibe.',
+        'Guests scan the host\'s QR code and shoot in that look from the iOS app.',
+        'Photos upload as they are taken and survive a bad connection.',
+        'Nobody sees them until the reveal time, then everyone does. The host picks favourites, and photos are deleted 30 days later.',
+      ],
+      shots: [
+        { src: '/work/rollnight/event-card.webp', alt: 'RollNight event invite for Sam turns 30, with a Step inside button', kind: 'phone', width: 480, height: 1044 },
+        { src: '/work/rollnight/camera.webp', alt: 'RollNight camera with 27 shots left', kind: 'phone', width: 480, height: 1044 },
+        { src: '/work/rollnight/gallery.webp', alt: 'RollNight gallery after the reveal, with the most loved photos first', kind: 'phone', width: 480, height: 1044 },
       ],
     },
     {
@@ -98,45 +135,20 @@ export const profile = {
       name: 'popback',
       status: 'building',
       kind: 'product',
-      role: 'Product and full-stack build',
+      role: 'Founder, product and engineering',
       summary: [
-        'A Kaslu product. Loyalty cards and marketing for independent venues. A QR at the counter puts a card in the customer\'s wallet and records every visit.',
-        'Welcome, birthday and win-back messages go out on the venue\'s behalf, and the venue owns its customer list.',
+        'Loyalty cards and marketing that bring customers back to independent venues.',
+        'A Kaslu product, sister to Kaslu Work and sold to the same venues.',
       ],
-    },
-    {
-      slug: 'kasluwork',
-      name: 'kasluwork.com.au',
-      url: 'https://kasluwork.com.au',
-      status: 'building',
-      kind: 'product',
-      role: 'Mobile app, admin and backend',
-      summary: [
-        'A Kaslu product. Rostering and geofenced clock-in for Australian hospitality venues.',
-        'Managers build rosters in a web admin, and staff clock in from a mobile app, only from inside the venue.',
+      highlights: [
+        'A QR code at the counter: customers join with a first name and an email or mobile, with real consent.',
+        'Their card lands in Apple Wallet or Google Wallet. Nothing to install, no password.',
+        'Staff scan the card from their phone\'s browser to add stamps or points.',
+        'Welcome, birthday and win-back messages send themselves, and the venue owns its customer list.',
       ],
-    },
-    {
-      slug: 'gabbstudio',
-      name: 'gabbstudio.com.au',
-      url: 'https://gabbstudio.com.au',
-      status: 'live',
-      kind: 'client website',
-      role: 'Design and build',
-      stack: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'Sanity', 'Resend', 'Cloudflare'],
-      summary: ['Built on the same stack as grimereapers.com.au: Next.js with content from Sanity, email through Resend, served from Cloudflare.'],
-    },
-    {
-      slug: 'grimereapers',
-      name: 'grimereapers.com.au',
-      url: 'https://grimereapers.com.au',
-      status: 'live',
-      kind: 'client website',
-      role: 'Design and build',
-      stack: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'Sanity', 'Resend', 'Cloudflare'],
-      summary: [
-        'Marketing site for a cleaning company covering Canberra, Sydney, Newcastle and Port Stephens.',
-        'Content comes from Sanity, enquiries are emailed through Resend, and it runs on Cloudflare through OpenNext.',
+      shots: [
+        { src: '/work/popback/join.webp', alt: 'Popback join page for Brew Lane Surry Hills', kind: 'phone', width: 480, height: 923 },
+        { src: '/work/popback/card.webp', alt: 'Popback loyalty card with 2 of 10 stamps', kind: 'phone', width: 480, height: 892 },
       ],
     },
   ],

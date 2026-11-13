@@ -7,7 +7,7 @@ type EditorWindowProps = {
   explorer: ReactNode
   primary: ReactNode
   secondary: ReactNode
-  panel: ReactNode
+  panel?: ReactNode
   statusBar: ReactNode
 }
 
@@ -27,9 +27,11 @@ export const EditorWindow = ({ titleBar, explorer, primary, secondary, panel, st
           <div className={`${styles.secondary} enter`} style={enterDelay(300)}>
             {secondary}
           </div>
-          <div className={`${styles.panel} enter`} style={enterDelay(500)}>
-            {panel}
-          </div>
+          {panel && (
+            <div className={`${styles.panel} enter`} style={enterDelay(500)}>
+              {panel}
+            </div>
+          )}
         </div>
       </div>
       {statusBar}

@@ -1,3 +1,9 @@
-.bar { display: flex; align-items: center; gap: 16px; padding: 10px 14px; background: var(--desk); border-bottom: 1px solid #000; font: 500 12.5px var(--ui); color: var(--comment); }
-.path { flex: 1; text-align: center; padding-right: 60px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-@media (max-width: 760px) { .path { padding-right: 0; } }
+.bar { display: flex; align-items: center; gap: 16px; padding: 8px 10px 8px 14px; background: var(--desk); border-bottom: 1px solid #000; font: 500 12.5px var(--ui); color: var(--comment); }
+.path { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.actions { display: flex; align-items: center; gap: 6px; flex: none; }
+@media (max-width: 760px) {
+  .bar { gap: 10px; }
+  .path { display: none; }
+  .actions { margin-left: auto; }
+}
+@media (max-width: 380px) { .dots { display: none; } .bar { padding-left: 10px; } }

@@ -1,0 +1,18 @@
+.bar { display: flex; align-items: center; gap: 6px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 5px;
+  font: 500 12.5px var(--ui); color: var(--fg); background: var(--side); border: 1px solid var(--line);
+  white-space: nowrap; transition: border-color 150ms var(--ease), background-color 150ms var(--ease);
+}
+.chip:hover { border-color: var(--purple); background: var(--bg); }
+.mail { color: var(--bg); background: var(--purple); border-color: var(--purple); font-weight: 600; }
+.mail:hover { background: #cbaafa; border-color: #cbaafa; }
+.out { font-size: 11px; opacity: .7; }
+.short { display: none; }
+@media (max-width: 760px) {
+  .address { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .short { display: inline; }
+  .chip { padding: 6px 9px; gap: 5px; }
+  .out { display: none; }
+  .bar { gap: 5px; }
+}
